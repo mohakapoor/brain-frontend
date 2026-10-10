@@ -37,10 +37,6 @@ export default function Navbar({ activeNav, onNavClick, onSignInClick }: NavbarP
       </nav>
 
       <div className="nav-actions">
-        <div className="status-badge">
-          <span className="pulse-dot" />
-          <span>Edge Online</span>
-        </div>
         <button type="button" className="btn-pill-primary" onClick={onSignInClick}>
           Sign In
         </button>

@@ -1,90 +1,89 @@
-import { useRef } from 'react'
-
 export default function SpotlightFeatures() {
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return
-    const cards = containerRef.current.getElementsByClassName('spotlight-card')
-    for (let i = 0; i < cards.length; i++) {
-      const card = cards[i] as HTMLElement
-      const rect = card.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-      card.style.setProperty('--mouse-x', `${x}px`)
-      card.style.setProperty('--mouse-y', `${y}px`)
-    }
-  }
-
   return (
     <section className="section-full section-spacing" id="spotlight-features">
       <div>
         <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, letterSpacing: '-0.03em' }}>
           Engineered for Extreme Focus
         </h2>
+        <p style={{ color: 'var(--text-secondary)', marginTop: '8px', fontSize: '1.05rem', maxWidth: '680px' }}>
+          Concrete architectural guarantees built to eliminate ambiguity, stale state, and context switching.
+        </p>
       </div>
 
-      <div
-        ref={containerRef}
-        onMouseMove={handleMouseMove}
-        className="spotlight-grid-wide"
-      >
-        <div className="spotlight-card span-6 reveal-on-scroll reveal-delay-1">
-          <div className="spotlight-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hero)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="16 18 22 12 16 6" />
-              <polyline points="8 6 2 12 8 18" />
-            </svg>
+      <div className="evidence-grid">
+        {/* Evidence Panel 1: Strict Hierarchy */}
+        <div className="evidence-card reveal-on-scroll reveal-delay-1">
+          <div className="evidence-preview-window">
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
+              <span className="evidence-badge" style={{ background: 'rgba(255, 70, 36, 0.15)', color: 'var(--accent-hero)', border: '1px solid rgba(255, 70, 36, 0.3)' }}>
+                Rule: Unfinished &gt; Done
+              </span>
+              <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>active_queue</span>
+            </div>
+            <div style={{ background: 'rgba(255, 70, 36, 0.1)', border: '1px solid rgba(255, 70, 36, 0.3)', padding: '10px 12px', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-hero)' }} />
+              <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#ffffff' }}>Probability revision & problem sets</span>
+            </div>
+            <div style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-subtle)', padding: '8px 12px', borderRadius: '8px', opacity: 0.5, display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ fontSize: '0.8rem', color: 'var(--accent-emerald)' }}>✓</span>
+              <span style={{ fontSize: '0.82rem', textDecoration: 'line-through', color: 'var(--text-muted)' }}>Implement D1 migrations</span>
+            </div>
           </div>
-          <h3 className="spotlight-card-heading">Two Interfaces, One Source of Truth</h3>
-          <p className="spotlight-card-body">
-            Use the web dashboard for visual triage and progress tracking, or manage tasks from ChatGPT/Claude
-            via MCP. Both operate on the same authoritative Hono API and D1 database.
-          </p>
+
+          <div>
+            <h3 className="evidence-card-title">Strict Visual Hierarchy</h3>
+            <p className="evidence-card-desc">
+              Unfinished tasks remain permanently pinned above completed ones. No nested boards, kanban lanes, or status dropdowns that create more planning work than actual execution.
+            </p>
+          </div>
         </div>
 
-        <div className="spotlight-card span-6 reveal-on-scroll reveal-delay-2">
-          <div className="spotlight-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <circle cx="12" cy="12" r="6" />
-              <circle cx="12" cy="12" r="2" />
-            </svg>
+        {/* Evidence Panel 2: Single Device Policy */}
+        <div className="evidence-card reveal-on-scroll reveal-delay-2">
+          <div className="evidence-preview-window">
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
+              <span className="evidence-badge" style={{ background: 'rgba(56, 189, 248, 0.12)', color: 'var(--accent-cyan)', border: '1px solid rgba(56, 189, 248, 0.25)' }}>
+                Session Invalidation
+              </span>
+              <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>auth_guard</span>
+            </div>
+            <div style={{ background: 'rgba(0, 0, 0, 0.5)', border: '1px solid var(--border-subtle)', padding: '12px', borderRadius: '8px', fontFamily: 'var(--font-mono)', fontSize: '0.76rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+              <span style={{ color: 'var(--accent-cyan)' }}>→ Device #2 authenticated</span><br />
+              <span style={{ color: 'var(--accent-hero)' }}>→ Revoked previous cookie</span><br />
+              <span>→ Status: 401 Session Replaced</span>
+            </div>
           </div>
-          <h3 className="spotlight-card-heading">Execution Over Planning</h3>
-          <p className="spotlight-card-body">
-            No bloated nested boards or complex project setups that create more planning work than actual work.
-            Built to get you doing the work faster.
-          </p>
+
+          <div>
+            <h3 className="evidence-card-title">Single-Device Session Guard</h3>
+            <p className="evidence-card-desc">
+              Strict single-active-session policy backed by encrypted HttpOnly cookies. Logging in from any new device automatically terminates all existing sessions.
+            </p>
+          </div>
         </div>
 
-        <div className="spotlight-card span-6 reveal-on-scroll reveal-delay-3">
-          <div className="spotlight-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-            </svg>
+        {/* Evidence Panel 3: Cloudflare SQLite Edge */}
+        <div className="evidence-card reveal-on-scroll reveal-delay-3">
+          <div className="evidence-preview-window">
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
+              <span className="evidence-badge" style={{ background: 'rgba(0, 229, 153, 0.12)', color: 'var(--accent-emerald)', border: '1px solid rgba(0, 229, 153, 0.25)' }}>
+                SQLite D1 Telemetry
+              </span>
+              <span style={{ fontSize: '0.72rem', color: 'var(--accent-emerald)', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>~0.8ms</span>
+            </div>
+            <div style={{ background: 'rgba(0, 0, 0, 0.5)', border: '1px solid var(--border-subtle)', padding: '12px', borderRadius: '8px', fontFamily: 'var(--font-mono)', fontSize: '0.76rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+              <code>SELECT * FROM tasks</code><br />
+              <code>WHERE user_id = ? ORDER BY completed ASC</code><br />
+              <span style={{ color: 'var(--accent-emerald)' }}>→ 0.0ms cold start · 300+ edge nodes</span>
+            </div>
           </div>
-          <h3 className="spotlight-card-heading">Single-Device Session Guard</h3>
-          <p className="spotlight-card-body">
-            Strict single-active-session policy. Logging in from a new device revokes previous sessions
-            instantly, backed by tamper-proof encrypted HttpOnly cookies.
-          </p>
-        </div>
 
-        <div className="spotlight-card span-6 reveal-on-scroll reveal-delay-4">
-          <div className="spotlight-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-yellow)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <line x1="2" y1="12" x2="22" y2="12" />
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-            </svg>
+          <div>
+            <h3 className="evidence-card-title">Sub-Millisecond Edge SQLite</h3>
+            <p className="evidence-card-desc">
+              Runs on Cloudflare Workers and SQLite D1 at the edge. Zero cold-start connection pool bottlenecks with automated typechecked schema migrations.
+            </p>
           </div>
-          <h3 className="spotlight-card-heading">Cloudflare Edge & SQLite D1</h3>
-          <p className="spotlight-card-body">
-            Deployed on Cloudflare Workers and SQLite D1 at the edge. 0.0ms cold starts across 300+ edge nodes
-            globally with automated typechecked migrations.
-          </p>
         </div>
       </div>
     </section>

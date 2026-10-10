@@ -56,12 +56,10 @@ body,
   overflow-x: hidden;
 }
 
-/* Outcrowd Full-Bleed Ambient Lighting */
+/* Focused Ambient Lighting (Constrained Vermilion/Obsidian) */
 body {
   background-image: 
-    radial-gradient(ellipse 75% 45% at 50% 6%, rgba(255, 70, 36, 0.16) 0%, transparent 68%),
-    radial-gradient(ellipse 50% 35% at 90% 25%, rgba(139, 92, 246, 0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 30% at 10% 60%, rgba(0, 229, 153, 0.05) 0%, transparent 60%);
+    radial-gradient(ellipse 80% 45% at 50% 4%, rgba(255, 70, 36, 0.14) 0%, transparent 68%);
   background-attachment: fixed;
 }
 
@@ -598,121 +596,281 @@ body {
   line-height: 1.5;
 }
 
-/* 4. The 5-Step Execution Loop Section */
-.loop-grid-5 {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 18px;
-  margin-top: 36px;
+/* 4. The 5-Step Execution Loop Section - Orbital Closed-Loop Diagram */
+.orbital-loop-wrapper {
+  margin-top: 40px;
+  width: 100%;
 }
 
-.loop-step-card {
-  background: var(--bg-surface);
+.orbital-diagram-canvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1000 / 440;
+  background: #090b10;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-card);
-  padding: 28px 22px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 24px rgba(0, 0, 0, 0.6);
+}
+
+.orbital-svg-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.orbital-path-pulse {
+  filter: drop-shadow(0 0 6px rgba(255, 70, 36, 0.4));
+  stroke-dasharray: 8 5;
+  animation: flowOrbitalDash 25s linear infinite;
+}
+
+@keyframes flowOrbitalDash {
+  from { stroke-dashoffset: 300; }
+  to { stroke-dashoffset: 0; }
+}
+
+.orbital-node {
+  position: absolute;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-item);
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
+  gap: 3px;
+  z-index: 2;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.orbital-node:hover {
+  border-color: var(--accent-hero);
+  background: #181c28;
+  box-shadow: 0 0 24px rgba(255, 70, 36, 0.3);
+}
+
+/* Coordinates matching SVG path endpoints in 1000x440 viewBox */
+.node-pos-left {
+  left: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18%;
+}
+
+.node-pos-top-left {
+  left: 28.5%;
+  top: 8.5%;
+  width: 18%;
+}
+
+.node-pos-top-right {
+  left: 53.5%;
+  top: 8.5%;
+  width: 18%;
+}
+
+.node-pos-right {
+  right: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18%;
+}
+
+.node-pos-bottom {
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+  width: 21%;
+}
+
+.node-pos-left:hover,
+.node-pos-right:hover {
+  transform: translateY(-52%);
+}
+
+.node-pos-top-left:hover,
+.node-pos-top-right:hover {
+  transform: translateY(-2px);
+}
+
+.node-pos-bottom:hover {
+  transform: translate(-50%, -2px);
+}
+
+.orbital-node-header {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  min-height: 270px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 6px;
+  margin-bottom: 2px;
 }
 
-.loop-step-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--border-hover);
-  background: #161822;
+.orbital-num {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  color: var(--accent-hero);
 }
 
-.step-badge-num {
-  font-size: 0.8rem;
+.orbital-tag {
+  font-size: 0.58rem;
   font-family: var(--font-mono);
   font-weight: 700;
-  color: var(--accent-hero);
-  padding: 4px 10px;
-  background: rgba(255, 70, 36, 0.12);
-  border: 1px solid rgba(255, 70, 36, 0.35);
-  border-radius: var(--radius-pill);
-  display: inline-block;
-  width: fit-content;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 5px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
 }
 
-.step-card-title {
-  font-size: 1.3rem;
+.orbital-title {
+  font-size: 1.15rem;
   font-weight: 800;
-  margin-top: 16px;
-  margin-bottom: 8px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 0;
 }
 
-.step-card-desc {
-  font-size: 0.9rem;
+.orbital-desc {
+  font-size: 0.74rem;
+  font-family: var(--font-mono);
+  color: var(--accent-cyan);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.orbital-output {
+  font-size: 0.72rem;
   color: var(--text-secondary);
-  line-height: 1.55;
+  line-height: 1.35;
+  margin-top: 2px;
 }
 
-/* 5. Spotlight Bento Features (Outcrowd #cards Spotlight) */
-.spotlight-grid-wide {
+/* Responsive: Mobile Stack */
+@media (max-width: 820px) {
+  .orbital-diagram-canvas {
+    display: none;
+  }
+
+  .mobile-loop-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .mobile-loop-item {
+    background: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-item);
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+  }
+
+  .mobile-loop-arrow {
+    text-align: center;
+    color: var(--accent-hero);
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-top: 6px;
+  }
+
+  .mobile-loop-arrow.return {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-hero);
+    opacity: 0.85;
+  }
+}
+
+@media (min-width: 821px) {
+  .mobile-loop-list {
+    display: none;
+  }
+}
+
+/* 5. Concrete Architectural Evidence Grid */
+.evidence-grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 36px;
 }
 
-.spotlight-card {
-  position: relative;
+.evidence-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-card);
-  padding: 40px;
-  overflow: hidden;
-  transition: border-color 0.25s ease;
-}
-
-.spotlight-card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  border-radius: inherit;
-  background: radial-gradient(
-    650px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(255, 255, 255, 0.08),
-    transparent 40%
-  );
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-  z-index: 1;
-}
-
-.spotlight-card:hover::before { opacity: 1; }
-.spotlight-card.span-6 { grid-column: span 6; }
-
-.spotlight-icon-box {
-  width: 52px;
-  height: 52px;
-  border-radius: var(--radius-item);
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-subtle);
+  padding: 28px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.spotlight-card-heading {
-  font-size: 1.35rem;
+.evidence-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+  background: #151822;
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6);
+}
+
+.evidence-preview-window {
+  background: #090b10;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-item);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 140px;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.evidence-badge {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.03em;
+}
+
+.evidence-card-title {
+  font-size: 1.25rem;
   font-weight: 800;
-  margin-bottom: 10px;
   letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  color: var(--text-primary);
 }
 
-.spotlight-card-body {
-  font-size: 0.95rem;
+.evidence-card-desc {
+  font-size: 0.88rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.55;
+  margin: 0;
 }
+
+@media (max-width: 900px) {
+  .evidence-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
 
 /* 6. Live Interactive Stream */
 .stream-box-wide {
