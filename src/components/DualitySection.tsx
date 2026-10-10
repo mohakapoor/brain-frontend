@@ -48,19 +48,9 @@ export default function DualitySection({ velocityPercentage, taskCount }: Dualit
 
       <div className="dual-screen-content">
         {activeInterface === 'web' ? (
-          <div style={{ display: 'grid', gridTemplateColumns: '7fr 5fr', gap: '20px' }}>
+          <div className="dual-grid-web">
             {/* Focal Vermilion Card */}
-            <div style={{
-              background: 'linear-gradient(145deg, #ff4624 0%, #e03211 100%)',
-              borderRadius: 'var(--radius-card)',
-              padding: '28px',
-              color: '#ffffff',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              minHeight: '260px',
-              boxShadow: '0 20px 40px var(--accent-hero-glow)'
-            }}>
+            <div className="focal-velocity-card">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <div>
                   <div style={{ fontSize: '0.85rem', fontWeight: 600, opacity: 0.9 }}>Execution Velocity</div>
@@ -78,8 +68,8 @@ export default function DualitySection({ velocityPercentage, taskCount }: Dualit
                 </div>
               </div>
 
-              <div style={{ marginTop: '20px' }}>
-                <svg style={{ width: '100%', height: '70px' }} viewBox="0 0 500 80" fill="none">
+              <div style={{ marginTop: '24px' }}>
+                <svg style={{ width: '100%', height: '70px', display: 'block' }} viewBox="0 0 500 80" fill="none">
                   <path
                     d="M0 55 Q 50 40, 90 48 T 180 30 T 260 42 T 340 18 T 420 25 T 500 12 L 500 80 L 0 80 Z"
                     fill="rgba(255, 255, 255, 0.25)"
@@ -92,27 +82,27 @@ export default function DualitySection({ velocityPercentage, taskCount }: Dualit
                   />
                   <circle cx="500" cy="12" r="5" fill="#ffffff" />
                 </svg>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', fontWeight: 600, opacity: 0.85, marginTop: '8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', fontWeight: 600, opacity: 0.85, marginTop: '10px' }}>
                   <span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span>
                 </div>
               </div>
             </div>
 
             {/* Telemetry Chips (No emojis, clean labels) */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-              <div style={{ background: 'var(--bg-surface-elevated)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-item)', padding: '16px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+            <div className="telemetry-grid">
+              <div className="telemetry-chip">
                 <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Edge Latency</span>
                 <span style={{ fontSize: '1.35rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>~1.2ms</span>
               </div>
-              <div style={{ background: 'var(--bg-surface-elevated)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-item)', padding: '16px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              <div className="telemetry-chip">
                 <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Session Policy</span>
                 <span style={{ fontSize: '1.35rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>Single Device</span>
               </div>
-              <div style={{ background: 'var(--bg-surface-elevated)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-item)', padding: '16px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              <div className="telemetry-chip">
                 <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Active Queue</span>
                 <span style={{ fontSize: '1.35rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>{taskCount} items</span>
               </div>
-              <div style={{ background: 'var(--bg-surface-elevated)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-item)', padding: '16px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              <div className="telemetry-chip">
                 <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Auth Protocol</span>
                 <span style={{ fontSize: '1.35rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>HttpOnly</span>
               </div>

@@ -54,7 +54,7 @@ export default function Hero({ children }: HeroProps) {
         </div>
 
         {/* Floating Card 3: Session Guard Card */}
-        <div className="floating-ui-card bottom-left">
+        <div className="floating-ui-card bottom-right">
           <div className="floating-card-header">
             <span className="floating-card-title">Session Shield</span>
             <span style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', fontWeight: 700 }}>
