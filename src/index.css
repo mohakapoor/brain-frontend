@@ -262,7 +262,8 @@ body {
 .hero-showcase-container {
   width: 100%;
   position: relative;
-  margin-top: 30px;
+  margin-top: 48px;
+  margin-bottom: 24px;
 }
 
 /* Outer positioning wrapper: handles coordinates & scroll pop-out translation */
@@ -275,18 +276,33 @@ body {
 }
 
 .floating-ui-wrapper.top-left {
-  top: -24px;
-  left: 24px;
+  top: -100px;
+  left: -50px;
 }
 
 .floating-ui-wrapper.top-right {
-  top: -24px;
-  right: 24px;
+  top: -100px;
+  right: -20px;
 }
 
 .floating-ui-wrapper.bottom-right {
-  bottom: -34px;
-  right: 40px;
+  bottom: -80px;
+  right: -24px;
+}
+
+@media (max-width: 1360px) and (min-width: 1101px) {
+  .floating-ui-wrapper.top-left {
+    top: -46px;
+    left: -12px;
+  }
+  .floating-ui-wrapper.top-right {
+    top: -46px;
+    right: -12px;
+  }
+  .floating-ui-wrapper.bottom-right {
+    bottom: -42px;
+    right: -8px;
+  }
 }
 
 /* Inner card: contains full background, border, shadow, padding & idle floating levitation as a unit */

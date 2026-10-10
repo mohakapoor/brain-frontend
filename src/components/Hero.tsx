@@ -10,11 +10,11 @@ export default function Hero({ children }: HeroProps) {
 
   // Floating cards pop-out dynamics:
   // At scrollProg = 0 (top of page): cards are tucked inwards closer to center
-  // As scrollProg approaches 1 (scrolling down): cards pop outwards into orbit around the fixed frame
-  const card1Transform = `translate(${tuckedFactor * 70}px, ${tuckedFactor * 50}px) scale(${0.75 + 0.25 * scrollProg})`
-  const card2Transform = `translate(${-tuckedFactor * 70}px, ${tuckedFactor * 50}px) scale(${0.75 + 0.25 * scrollProg})`
-  const card3Transform = `translate(${-tuckedFactor * 55}px, ${-tuckedFactor * 45}px) scale(${0.75 + 0.25 * scrollProg})`
-  const cardOpacity = 0.3 + 0.7 * scrollProg
+  // As scrollProg approaches 1 (scrolling down): cards pop outwards completely outside the fixed frame
+  const card1Transform = `translate(${tuckedFactor * 85}px, ${tuckedFactor * 60}px) scale(${0.72 + 0.28 * scrollProg})`
+  const card2Transform = `translate(${-tuckedFactor * 85}px, ${tuckedFactor * 60}px) scale(${0.72 + 0.28 * scrollProg})`
+  const card3Transform = `translate(${-tuckedFactor * 70}px, ${-tuckedFactor * 55}px) scale(${0.72 + 0.28 * scrollProg})`
+  const cardOpacity = 0.25 + 0.75 * scrollProg
 
   return (
     <section className="section-full hero-stage" id="top">
