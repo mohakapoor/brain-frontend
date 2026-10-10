@@ -1222,52 +1222,49 @@ body::before {
   box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.08);
 }
 
-/* 9. Ecosystem Pillars (Finance, Fitness, Nutrition) */
+/* 9. Ecosystem Pillars (Finance, Fitness, Nutrition) - Unboxed Editorial Architecture */
 .domain-header-row {
   margin-bottom: 8px;
 }
 
 .domain-tabs-bar {
   display: flex;
-  gap: 8px;
-  margin-top: 32px;
+  gap: 28px;
+  margin-top: 36px;
   border-bottom: 1px solid var(--border-subtle);
-  padding-bottom: 16px;
   overflow-x: auto;
 }
 
 .domain-tab-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   background: transparent;
-  border: 1px solid transparent;
-  border-radius: var(--radius-pill);
-  padding: 10px 20px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 14px 0;
   font-family: inherit;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s ease;
   white-space: nowrap;
 }
 
 .domain-tab-btn:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.04);
 }
 
 .domain-tab-btn.active {
-  background: var(--bg-surface-elevated);
   color: var(--text-primary);
-  border-color: var(--border-medium);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  border-bottom-color: var(--accent-hero);
+  background: transparent;
 }
 
 .domain-tab-num {
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 800;
   color: var(--accent-hero);
 }
@@ -1276,103 +1273,98 @@ body::before {
   font-weight: 700;
 }
 
-.domain-showcase-panel {
+/* Unboxed Page-Canvas Grid (No nested outer card container) */
+.domain-stage-grid {
   display: grid;
-  grid-template-columns: 7fr 5fr;
-  gap: 32px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-card);
-  padding: 40px;
-  margin-top: 24px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  margin-top: 40px;
+  align-items: start;
 }
 
 .domain-info-col {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .domain-tagline {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-family: var(--font-mono);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   color: var(--accent-hero);
   margin-bottom: 8px;
   font-weight: 700;
 }
 
 .domain-panel-title {
-  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
   font-weight: 900;
   letter-spacing: -0.02em;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   color: var(--text-primary);
 }
 
 .domain-panel-desc {
-  font-size: 0.96rem;
+  font-size: 1rem;
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 28px;
-  max-width: 600px;
+  line-height: 1.65;
+  margin-bottom: 32px;
 }
 
+/* Typographic Stat Rules (Pure text & accents, zero box wrappers) */
 .domain-metrics-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  gap: 24px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .domain-metric-cell {
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-item);
-  padding: 18px 16px;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  border-left: 2px solid var(--border-medium);
+  padding-left: 14px;
 }
 
 .domain-metric-label {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-family: var(--font-mono);
   font-weight: 700;
   color: var(--text-muted);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 
 .domain-metric-val {
-  font-size: 1.22rem;
+  font-size: 1.35rem;
   font-family: var(--font-mono);
   font-weight: 800;
   color: var(--text-primary);
 }
 
 .domain-metric-sub {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: var(--text-secondary);
   margin-top: 2px;
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 .domain-preview-col {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
+/* Flat Ledger Window (Single border layer, flat hairline rows) */
 .telemetry-screen {
-  background: #090b10;
+  background: transparent;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-item);
-  padding: 24px;
+  border-radius: 12px;
+  padding: 24px 28px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+  gap: 16px;
 }
 
 .telemetry-screen-bar {
@@ -1380,7 +1372,7 @@ body::before {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--border-subtle);
-  padding-bottom: 12px;
+  padding-bottom: 14px;
 }
 
 .telemetry-chip-tag {
@@ -1388,34 +1380,32 @@ body::before {
   font-family: var(--font-mono);
   font-weight: 700;
   color: var(--accent-cyan);
-  background: rgba(56, 189, 248, 0.1);
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  padding: 3px 8px;
-  border-radius: 4px;
+  letter-spacing: 0.04em;
 }
 
 .telemetry-status {
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-family: var(--font-mono);
   color: var(--accent-emerald);
   font-weight: 600;
 }
 
+/* Flat Row Dividers (No nested card boxes or pills) */
 .telemetry-log-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid var(--border-subtle);
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-size: 0.82rem;
-  gap: 8px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 12px 0;
+  font-size: 0.88rem;
+  gap: 12px;
 }
 
 .log-time {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.76rem;
   color: var(--text-muted);
   flex-shrink: 0;
 }
@@ -1424,14 +1414,11 @@ body::before {
   color: var(--text-primary);
   flex: 1;
   font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .log-amt {
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -1448,8 +1435,7 @@ body::before {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 12px;
+  padding-top: 10px;
   font-size: 0.78rem;
   font-family: var(--font-mono);
   color: var(--text-muted);
@@ -1457,11 +1443,11 @@ body::before {
 
 .macro-bar-wrapper {
   width: 100%;
-  height: 8px;
+  height: 6px;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 999px;
   overflow: hidden;
-  margin-block: 4px;
+  margin-block: 2px;
 }
 
 .macro-bar-fill {
@@ -1473,37 +1459,23 @@ body::before {
 .text-hero-mono {
   color: var(--accent-hero);
   font-family: var(--font-mono);
+  font-weight: 700;
 }
 
-/* Light mode overrides for Ecosystem Pillars */
-[data-theme="light"] .domain-showcase-panel {
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04);
+[data-theme="light"] .macro-bar-wrapper {
+  background: rgba(0, 0, 0, 0.08);
 }
 
-[data-theme="light"] .domain-tab-btn:hover {
-  background: rgba(0, 0, 0, 0.04);
-}
-
-[data-theme="light"] .domain-tab-btn.active {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-}
-
-[data-theme="light"] .telemetry-screen {
-  background: #f1f3f7;
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05);
-}
-
-[data-theme="light"] .telemetry-log-item {
-  background: #ffffff;
-  border-color: rgba(0, 0, 0, 0.07);
+[data-theme="light"] .domain-metric-cell {
+  border-left-color: var(--border-medium);
 }
 
 @media (max-width: 1024px) {
-  .domain-showcase-panel {
+  .domain-stage-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 28px;
+    gap: 36px;
   }
+
   .domain-metrics-grid {
     grid-template-columns: 1fr;
   }

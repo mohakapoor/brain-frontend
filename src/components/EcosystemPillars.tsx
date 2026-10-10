@@ -84,8 +84,8 @@ export default function EcosystemPillars() {
         ))}
       </div>
 
-      {/* Domain Interactive Showcase */}
-      <div className="domain-showcase-panel reveal-on-scroll">
+      {/* Unboxed Editorial Domain Showcase */}
+      <div className="domain-stage-grid reveal-on-scroll">
         <div className="domain-info-col">
           <div className="domain-tagline">{current.tagline}</div>
           <h3 className="domain-panel-title">{current.title}</h3>
