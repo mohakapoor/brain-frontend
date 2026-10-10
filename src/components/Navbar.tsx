@@ -31,6 +31,13 @@ export default function Navbar({ activeNav, theme, onNavClick, onSignInClick, on
         </button>
         <button
           type="button"
+          className={`nav-link-btn ${activeNav === 'domains' ? 'active' : ''}`}
+          onClick={() => onNavClick('ecosystem-pillars', 'domains')}
+        >
+          Ecosystem
+        </button>
+        <button
+          type="button"
           className={`nav-link-btn ${activeNav === 'stream' ? 'active' : ''}`}
           onClick={() => onNavClick('live-stream', 'stream')}
         >
