@@ -8,16 +8,13 @@ export default function Hero({ children }: HeroProps) {
   const scrollProg = useScrollProgress()
   const tuckedFactor = 1 - scrollProg
 
-  // Linear.app pop-out dynamics:
-  // At scrollProg = 0 (top of page): cards are tucked inwards with lower opacity & slight scale
-  // As scrollProg approaches 1 (scrolling down towards showcase): cards pop outwards into orbit
-  const card1Transform = `translate(${tuckedFactor * 60}px, ${tuckedFactor * 45}px) scale(${0.75 + 0.25 * scrollProg})`
-  const card2Transform = `translate(${-tuckedFactor * 60}px, ${tuckedFactor * 45}px) scale(${0.75 + 0.25 * scrollProg})`
-  const card3Transform = `translate(${-tuckedFactor * 50}px, ${-tuckedFactor * 40}px) scale(${0.75 + 0.25 * scrollProg})`
-  const cardOpacity = 0.35 + 0.65 * scrollProg
-
-  // Centerpiece 3D perspective tilt straightens up
-  const frameTransform = `perspective(1200px) rotateX(${tuckedFactor * 6}deg) scale(${0.96 + 0.04 * scrollProg})`
+  // Floating cards pop-out dynamics:
+  // At scrollProg = 0 (top of page): cards are tucked inwards closer to center
+  // As scrollProg approaches 1 (scrolling down): cards pop outwards into orbit around the fixed frame
+  const card1Transform = `translate(${tuckedFactor * 70}px, ${tuckedFactor * 50}px) scale(${0.75 + 0.25 * scrollProg})`
+  const card2Transform = `translate(${-tuckedFactor * 70}px, ${tuckedFactor * 50}px) scale(${0.75 + 0.25 * scrollProg})`
+  const card3Transform = `translate(${-tuckedFactor * 55}px, ${-tuckedFactor * 45}px) scale(${0.75 + 0.25 * scrollProg})`
+  const cardOpacity = 0.3 + 0.7 * scrollProg
 
   return (
     <section className="section-full hero-stage" id="top">
@@ -100,8 +97,8 @@ export default function Hero({ children }: HeroProps) {
           </div>
         </div>
 
-        {/* The Centerpiece Device Frame with 3D tilt */}
-        <div className="device-mockup-frame" style={{ transform: frameTransform }}>
+        {/* The Solid Grounded Centerpiece Device Frame */}
+        <div className="device-mockup-frame">
           <div className="device-chrome-bar">
             <div className="chrome-dots">
               <span className="chrome-dot" />
