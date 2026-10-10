@@ -29,8 +29,8 @@ export default function ProofStats() {
   return (
     <section className="section-full section-spacing" id="proof-stats">
       <div className="stats-grid-wide">
-        {stats.map(s => (
-          <div key={s.label} className="stat-card-big">
+        {stats.map((s, idx) => (
+          <div key={s.label} className={`stat-card-big reveal-on-scroll reveal-delay-${idx + 1}`}>
             <div className="stat-number-huge" style={{ color: s.color }}>
               {s.number}
             </div>

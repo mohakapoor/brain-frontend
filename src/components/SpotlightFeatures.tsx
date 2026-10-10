@@ -33,7 +33,7 @@ export default function SpotlightFeatures() {
         onMouseMove={handleMouseMove}
         className="spotlight-grid-wide"
       >
-        <div className="spotlight-card span-6">
+        <div className="spotlight-card span-6 reveal-on-scroll reveal-delay-1">
           <div className="spotlight-icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hero)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="16 18 22 12 16 6" />
@@ -47,7 +47,7 @@ export default function SpotlightFeatures() {
           </p>
         </div>
 
-        <div className="spotlight-card span-6">
+        <div className="spotlight-card span-6 reveal-on-scroll reveal-delay-2">
           <div className="spotlight-icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="10" />
@@ -62,7 +62,7 @@ export default function SpotlightFeatures() {
           </p>
         </div>
 
-        <div className="spotlight-card span-6">
+        <div className="spotlight-card span-6 reveal-on-scroll reveal-delay-3">
           <div className="spotlight-icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
@@ -76,7 +76,7 @@ export default function SpotlightFeatures() {
           </p>
         </div>
 
-        <div className="spotlight-card span-6">
+        <div className="spotlight-card span-6 reveal-on-scroll reveal-delay-4">
           <div className="spotlight-icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-yellow)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="10" />

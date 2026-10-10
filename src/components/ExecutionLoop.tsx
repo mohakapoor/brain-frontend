@@ -55,8 +55,8 @@ export default function ExecutionLoop() {
       </div>
 
       <div className="loop-grid-5">
-        {steps.map(step => (
-          <div key={step.num} className="loop-step-card">
+        {steps.map((step, idx) => (
+          <div key={step.num} className={`loop-step-card reveal-on-scroll reveal-delay-${idx + 1}`}>
             <div>
               <span className="step-badge-num">{step.num}</span>
               <h3 className="step-card-title">{step.title}</h3>

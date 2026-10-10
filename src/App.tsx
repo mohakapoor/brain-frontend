@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { DemoTask } from './types/landing'
+import { useScrollReveal } from './hooks/useScrollReveal'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import DualitySection from './components/DualitySection'
@@ -11,6 +12,7 @@ import AuthGateway from './components/AuthGateway'
 import Footer from './components/Footer'
 
 export default function App() {
+  useScrollReveal()
   const [activeNav, setActiveNav] = useState('loop')
   const [tasks, setTasks] = useState<DemoTask[]>([
     { id: 1, title: 'Implement Cloudflare D1 atomic migrations', completed: true, tag: 'INFRA' },

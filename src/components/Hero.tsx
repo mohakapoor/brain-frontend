@@ -1,8 +1,24 @@
+import { useScrollProgress } from '../hooks/useScrollProgress'
+
 interface HeroProps {
   children: React.ReactNode
 }
 
 export default function Hero({ children }: HeroProps) {
+  const scrollProg = useScrollProgress()
+  const tuckedFactor = 1 - scrollProg
+
+  // Linear.app pop-out dynamics:
+  // At scrollProg = 0 (top of page): cards are tucked inwards with lower opacity & slight scale
+  // As scrollProg approaches 1 (scrolling down towards showcase): cards pop outwards into orbit
+  const card1Transform = `translate(${tuckedFactor * 60}px, ${tuckedFactor * 45}px) scale(${0.75 + 0.25 * scrollProg})`
+  const card2Transform = `translate(${-tuckedFactor * 60}px, ${tuckedFactor * 45}px) scale(${0.75 + 0.25 * scrollProg})`
+  const card3Transform = `translate(${-tuckedFactor * 50}px, ${-tuckedFactor * 40}px) scale(${0.75 + 0.25 * scrollProg})`
+  const cardOpacity = 0.35 + 0.65 * scrollProg
+
+  // Centerpiece 3D perspective tilt straightens up
+  const frameTransform = `perspective(1200px) rotateX(${tuckedFactor * 6}deg) scale(${0.96 + 0.04 * scrollProg})`
+
   return (
     <section className="section-full hero-stage" id="top">
       <div className="pill-eyebrow">
@@ -20,57 +36,72 @@ export default function Hero({ children }: HeroProps) {
         Capture tasks in under 500ms via visual web or natural language AI.
       </p>
 
-      {/* Hero Showcase with Substantial Levitating Outcrowd Micro-UI Cards */}
+      {/* Hero Showcase with Linear.app pop-out levitating micro-cards */}
       <div className="hero-showcase-container">
         {/* Floating Card 1: Fast-Capture Shortcut Card */}
-        <div className="floating-ui-card top-left">
-          <div className="floating-card-header">
-            <span className="floating-card-title">Instant Capture</span>
-            <span className="pulse-dot" />
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span className="kbd-badge" style={{ fontSize: '0.85rem', padding: '4px 10px' }}>Cmd + K</span>
-            <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>Offload flow</span>
-          </div>
-          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-            Zero categorized menus
+        <div
+          className="floating-ui-card top-left"
+          style={{ transform: card1Transform, opacity: cardOpacity }}
+        >
+          <div className="floating-card-inner">
+            <div className="floating-card-header">
+              <span className="floating-card-title">Instant Capture</span>
+              <span className="pulse-dot" />
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span className="kbd-badge" style={{ fontSize: '0.85rem', padding: '4px 10px' }}>Cmd + K</span>
+              <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>Offload flow</span>
+            </div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+              Zero categorized menus
+            </div>
           </div>
         </div>
 
         {/* Floating Card 2: D1 Edge Query Telemetry Card */}
-        <div className="floating-ui-card top-right">
-          <div className="floating-card-header">
-            <span className="floating-card-title">Cloudflare D1 Query</span>
-            <span style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', fontWeight: 700 }}>
-              0.0ms cold
-            </span>
-          </div>
-          <div className="floating-code-snippet">
-            SELECT * FROM tasks WHERE user_id = ?
-          </div>
-          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-            Sub-millisecond V8 edge isolate
+        <div
+          className="floating-ui-card top-right"
+          style={{ transform: card2Transform, opacity: cardOpacity }}
+        >
+          <div className="floating-card-inner">
+            <div className="floating-card-header">
+              <span className="floating-card-title">Cloudflare D1 Query</span>
+              <span style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', fontWeight: 700 }}>
+                0.0ms cold
+              </span>
+            </div>
+            <div className="floating-code-snippet">
+              SELECT * FROM tasks WHERE user_id = ?
+            </div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+              Sub-millisecond V8 edge isolate
+            </div>
           </div>
         </div>
 
         {/* Floating Card 3: Session Guard Card */}
-        <div className="floating-ui-card bottom-right">
-          <div className="floating-card-header">
-            <span className="floating-card-title">Session Shield</span>
-            <span style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', fontWeight: 700 }}>
-              HttpOnly
-            </span>
-          </div>
-          <div style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-primary)' }}>
-            Single-Device Policy Active
-          </div>
-          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-            Revokes stale logins automatically
+        <div
+          className="floating-ui-card bottom-right"
+          style={{ transform: card3Transform, opacity: cardOpacity }}
+        >
+          <div className="floating-card-inner">
+            <div className="floating-card-header">
+              <span className="floating-card-title">Session Shield</span>
+              <span style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', fontWeight: 700 }}>
+                HttpOnly
+              </span>
+            </div>
+            <div style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-primary)' }}>
+              Single-Device Policy Active
+            </div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+              Revokes stale logins automatically
+            </div>
           </div>
         </div>
 
-        {/* The Centerpiece Device Frame */}
-        <div className="device-mockup-frame">
+        {/* The Centerpiece Device Frame with 3D tilt */}
+        <div className="device-mockup-frame" style={{ transform: frameTransform }}>
           <div className="device-chrome-bar">
             <div className="chrome-dots">
               <span className="chrome-dot" />

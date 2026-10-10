@@ -5,7 +5,7 @@ export default function AuthGateway() {
 
   return (
     <section className="section-full section-spacing" id="auth-gateway">
-      <div className="auth-stage-container">
+      <div className="auth-stage-container reveal-on-scroll">
         <div className="auth-tabs">
           <button
             type="button"

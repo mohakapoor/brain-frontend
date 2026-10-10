@@ -19,7 +19,7 @@ export default function LiveStream({ tasks, onToggleTask, onAddTask }: LiveStrea
 
   return (
     <section className="section-full section-spacing" id="live-stream">
-      <div className="stream-box-wide">
+      <div className="stream-box-wide reveal-on-scroll">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
           <div>
             <div className="pill-eyebrow" style={{ marginBottom: '8px' }}>
