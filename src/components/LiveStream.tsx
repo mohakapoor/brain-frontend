@@ -18,51 +18,53 @@ export default function LiveStream({ tasks, onToggleTask, onAddTask }: LiveStrea
   }
 
   return (
-    <section className="stream-container" id="live-stream">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div>
-          <span className="pill-eyebrow" style={{ marginBottom: '8px' }}>
-            <span>●</span> Interactive Prototype
-          </span>
-          <h2 style={{ fontSize: '1.45rem', fontWeight: 700, letterSpacing: '-0.02em', marginTop: '4px' }}>
-            Live Execution Stream
-          </h2>
-        </div>
-        <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-          Click tasks to toggle complete & recalculate velocity
-        </span>
-      </div>
-
-      <form onSubmit={handleSubmit} className="capture-input-box">
-        <input
-          type="text"
-          className="capture-input"
-          placeholder="What do you need to execute right now?"
-          value={inputVal}
-          onChange={e => setInputVal(e.target.value)}
-        />
-        <span className="kbd-badge">↵ Enter</span>
-        <button type="submit" className="btn-pill-orange">
-          Capture
-        </button>
-      </form>
-
-      <div className="task-stream-list">
-        {tasks.map(task => (
-          <div
-            key={task.id}
-            className={`task-item-row ${task.completed ? 'completed' : ''}`}
-            onClick={() => onToggleTask(task.id)}
-          >
-            <div className="task-left">
-              <div className="custom-checkbox">
-                <span className="checkmark-icon">✓</span>
-              </div>
-              <span className="task-text">{task.title}</span>
+    <section className="section-full section-spacing" id="live-stream">
+      <div className="stream-box-wide">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+          <div>
+            <div className="pill-eyebrow" style={{ marginBottom: '8px' }}>
+              <span>●</span> Interactive Prototype
             </div>
-            <span className="task-meta-tag">{task.tag}</span>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, letterSpacing: '-0.02em', marginTop: '4px' }}>
+              Live Execution Stream
+            </h2>
           </div>
-        ))}
+          <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+            Click tasks to complete & recalculate velocity
+          </span>
+        </div>
+
+        <form onSubmit={handleSubmit} className="capture-input-box">
+          <input
+            type="text"
+            className="capture-input"
+            placeholder="What do you need to execute right now?"
+            value={inputVal}
+            onChange={e => setInputVal(e.target.value)}
+          />
+          <span className="kbd-badge">↵ Enter</span>
+          <button type="submit" className="btn-pill-orange">
+            Capture
+          </button>
+        </form>
+
+        <div className="task-stream-list">
+          {tasks.map(task => (
+            <div
+              key={task.id}
+              className={`task-item-row ${task.completed ? 'completed' : ''}`}
+              onClick={() => onToggleTask(task.id)}
+            >
+              <div className="task-left">
+                <div className="custom-checkbox">
+                  <span className="checkmark-icon">✓</span>
+                </div>
+                <span className="task-text">{task.title}</span>
+              </div>
+              <span className="task-meta-tag">{task.tag}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

@@ -3,6 +3,7 @@ import type { DemoTask } from './types/landing'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import DualitySection from './components/DualitySection'
+import ProofStats from './components/ProofStats'
 import ExecutionLoop from './components/ExecutionLoop'
 import SpotlightFeatures from './components/SpotlightFeatures'
 import LiveStream from './components/LiveStream'
@@ -45,17 +46,21 @@ export default function App() {
   const velocityPercentage = tasks.length > 0 ? Math.round((completedCount / tasks.length) * 100) : 100
 
   return (
-    <div className="landing-shell">
+    <div>
       <Navbar
         activeNav={activeNav}
         onNavClick={handleNavClick}
         onSignInClick={() => handleNavClick('auth-gateway', 'auth')}
       />
-      <Hero />
-      <DualitySection
-        velocityPercentage={velocityPercentage}
-        taskCount={tasks.length}
-      />
+
+      <Hero>
+        <DualitySection
+          velocityPercentage={velocityPercentage}
+          taskCount={tasks.length}
+        />
+      </Hero>
+
+      <ProofStats />
       <ExecutionLoop />
       <SpotlightFeatures />
       <LiveStream

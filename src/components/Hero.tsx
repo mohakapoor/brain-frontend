@@ -1,44 +1,90 @@
-export default function Hero() {
+interface HeroProps {
+  children: React.ReactNode
+}
+
+export default function Hero({ children }: HeroProps) {
   return (
-    <section className="hero-wrapper" id="top">
+    <section className="section-full hero-stage" id="top">
       <div className="pill-eyebrow">
         <span>●</span>
         <span>Personal Execution System</span>
       </div>
 
-      <h1 className="hero-title">
+      <h1 className="hero-headline-massive">
         Capture Quickly.<br />
         Execute Relentlessly.
       </h1>
 
-      <p className="hero-subtitle">
+      <p className="hero-lead-text">
         An external prefrontal cortex engineered to eliminate working memory decay.
         Capture tasks in under 500ms via visual web or natural language AI.
       </p>
 
-      {/* Floating Satellite Badges (Clean SVG Icons, Zero Emojis) */}
-      <div className="satellites-orbit">
-        <div className="satellite-chip pos-left">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-          </svg>
-          <span>~1.2ms Edge Isolation</span>
+      {/* Hero Showcase with Substantial Levitating Outcrowd Micro-UI Cards */}
+      <div className="hero-showcase-container">
+        {/* Floating Card 1: Fast-Capture Shortcut Card */}
+        <div className="floating-ui-card top-left">
+          <div className="floating-card-header">
+            <span className="floating-card-title">Instant Capture</span>
+            <span className="pulse-dot" />
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span className="kbd-badge" style={{ fontSize: '0.85rem', padding: '4px 10px' }}>Cmd + K</span>
+            <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>Offload flow</span>
+          </div>
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+            Zero categorized menus
+          </div>
         </div>
 
-        <div className="satellite-chip pos-right">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hero)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-          </svg>
-          <span>Single-Device Shield</span>
+        {/* Floating Card 2: D1 Edge Query Telemetry Card */}
+        <div className="floating-ui-card top-right">
+          <div className="floating-card-header">
+            <span className="floating-card-title">Cloudflare D1 Query</span>
+            <span style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', fontWeight: 700 }}>
+              0.0ms cold
+            </span>
+          </div>
+          <div className="floating-code-snippet">
+            SELECT * FROM tasks WHERE user_id = ?
+          </div>
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+            Sub-millisecond V8 edge isolate
+          </div>
         </div>
 
-        <div className="satellite-chip pos-bottom">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <ellipse cx="12" cy="5" rx="9" ry="3" />
-            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
-            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
-          </svg>
-          <span>Cloudflare D1 SQLite</span>
+        {/* Floating Card 3: Session Guard Card */}
+        <div className="floating-ui-card bottom-left">
+          <div className="floating-card-header">
+            <span className="floating-card-title">Session Shield</span>
+            <span style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', fontWeight: 700 }}>
+              HttpOnly
+            </span>
+          </div>
+          <div style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-primary)' }}>
+            Single-Device Policy Active
+          </div>
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+            Revokes stale logins automatically
+          </div>
+        </div>
+
+        {/* The Centerpiece Device Frame */}
+        <div className="device-mockup-frame">
+          <div className="device-chrome-bar">
+            <div className="chrome-dots">
+              <span className="chrome-dot" />
+              <span className="chrome-dot" />
+              <span className="chrome-dot" />
+            </div>
+            <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+              brain.mohakapoor.in · edge session
+            </span>
+            <div style={{ width: '40px' }} />
+          </div>
+          <div className="device-body">
+            {children}
+          </div>
         </div>
       </div>
     </section>

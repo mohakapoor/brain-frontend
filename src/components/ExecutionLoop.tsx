@@ -38,29 +38,31 @@ export default function ExecutionLoop() {
   ]
 
   return (
-    <section className="loop-section" id="the-loop">
-      <div className="loop-header">
+    <section className="section-full section-spacing" id="the-loop">
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px' }}>
         <div>
-          <div className="pill-eyebrow" style={{ marginBottom: '10px' }}>
+          <div className="pill-eyebrow" style={{ marginBottom: '12px' }}>
             <span>●</span>
             <span>The Core Engine</span>
           </div>
-          <h2 className="loop-title">The 5-Step Execution Loop</h2>
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, letterSpacing: '-0.03em' }}>
+            The 5-Step Execution Loop
+          </h2>
         </div>
-        <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+        <span style={{ color: 'var(--text-muted)', fontSize: '1rem', fontFamily: 'var(--font-mono)' }}>
           Capture → Review → Execute → Track → Improve
         </span>
       </div>
 
-      <div className="loop-grid">
+      <div className="loop-grid-5">
         {steps.map(step => (
-          <div key={step.num} className="loop-card">
+          <div key={step.num} className="loop-step-card">
             <div>
-              <span className="loop-step-badge">{step.num}</span>
-              <h3 className="loop-card-title">{step.title}</h3>
-              <p className="loop-card-desc">{step.desc}</p>
+              <span className="step-badge-num">{step.num}</span>
+              <h3 className="step-card-title">{step.title}</h3>
+              <p className="step-card-desc">{step.desc}</p>
             </div>
-            <span style={{ fontSize: '0.78rem', color: step.color, fontWeight: 600 }}>
+            <span style={{ fontSize: '0.82rem', color: step.color, fontWeight: 700, marginTop: '20px' }}>
               ✓ {step.tag}
             </span>
           </div>
