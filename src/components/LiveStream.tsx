@@ -1,0 +1,69 @@
+import { useState } from 'react'
+import type { DemoTask } from '../types/landing'
+
+interface LiveStreamProps {
+  tasks: DemoTask[]
+  onToggleTask: (id: number) => void
+  onAddTask: (title: string) => void
+}
+
+export default function LiveStream({ tasks, onToggleTask, onAddTask }: LiveStreamProps) {
+  const [inputVal, setInputVal] = useState('')
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!inputVal.trim()) return
+    onAddTask(inputVal.trim())
+    setInputVal('')
+  }
+
+  return (
+    <section className="stream-container" id="live-stream">
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div>
+          <span className="pill-eyebrow" style={{ marginBottom: '8px' }}>
+            <span>●</span> Interactive Prototype
+          </span>
+          <h2 style={{ fontSize: '1.45rem', fontWeight: 700, letterSpacing: '-0.02em', marginTop: '4px' }}>
+            Live Execution Stream
+          </h2>
+        </div>
+        <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+          Click tasks to toggle complete & recalculate velocity
+        </span>
+      </div>
+
+      <form onSubmit={handleSubmit} className="capture-input-box">
+        <input
+          type="text"
+          className="capture-input"
+          placeholder="What do you need to execute right now?"
+          value={inputVal}
+          onChange={e => setInputVal(e.target.value)}
+        />
+        <span className="kbd-badge">↵ Enter</span>
+        <button type="submit" className="btn-pill-orange">
+          Capture
+        </button>
+      </form>
+
+      <div className="task-stream-list">
+        {tasks.map(task => (
+          <div
+            key={task.id}
+            className={`task-item-row ${task.completed ? 'completed' : ''}`}
+            onClick={() => onToggleTask(task.id)}
+          >
+            <div className="task-left">
+              <div className="custom-checkbox">
+                <span className="checkmark-icon">✓</span>
+              </div>
+              <span className="task-text">{task.title}</span>
+            </div>
+            <span className="task-meta-tag">{task.tag}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
