@@ -6,7 +6,6 @@ import Hero from './components/Hero'
 import DualitySection from './components/DualitySection'
 import ProofStats from './components/ProofStats'
 import ExecutionLoop from './components/ExecutionLoop'
-import SpotlightFeatures from './components/SpotlightFeatures'
 import EcosystemPillars from './components/EcosystemPillars'
 import LiveStream from './components/LiveStream'
 import AuthGateway from './components/AuthGateway'
@@ -84,7 +83,6 @@ export default function App() {
 
       <ProofStats />
       <ExecutionLoop />
-      <SpotlightFeatures />
       <EcosystemPillars />
       <LiveStream
         tasks={tasks}
