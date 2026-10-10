@@ -37,10 +37,10 @@ export default function Hero({ children }: HeroProps) {
       <div className="hero-showcase-container">
         {/* Floating Card 1: Fast-Capture Shortcut Card */}
         <div
-          className="floating-ui-card top-left"
+          className="floating-ui-wrapper top-left"
           style={{ transform: card1Transform, opacity: cardOpacity }}
         >
-          <div className="floating-card-inner">
+          <div className="floating-ui-card">
             <div className="floating-card-header">
               <span className="floating-card-title">Instant Capture</span>
               <span className="pulse-dot" />
@@ -57,10 +57,10 @@ export default function Hero({ children }: HeroProps) {
 
         {/* Floating Card 2: D1 Edge Query Telemetry Card */}
         <div
-          className="floating-ui-card top-right"
+          className="floating-ui-wrapper top-right"
           style={{ transform: card2Transform, opacity: cardOpacity }}
         >
-          <div className="floating-card-inner">
+          <div className="floating-ui-card">
             <div className="floating-card-header">
               <span className="floating-card-title">Cloudflare D1 Query</span>
               <span style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', fontWeight: 700 }}>
@@ -78,10 +78,10 @@ export default function Hero({ children }: HeroProps) {
 
         {/* Floating Card 3: Session Guard Card */}
         <div
-          className="floating-ui-card bottom-right"
+          className="floating-ui-wrapper bottom-right"
           style={{ transform: card3Transform, opacity: cardOpacity }}
         >
-          <div className="floating-card-inner">
+          <div className="floating-ui-card">
             <div className="floating-card-header">
               <span className="floating-card-title">Session Shield</span>
               <span style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', fontWeight: 700 }}>
