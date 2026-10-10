@@ -225,22 +225,6 @@ body {
   gap: 28px;
 }
 
-.pill-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 18px;
-  background: rgba(255, 70, 36, 0.12);
-  border: 1px solid rgba(255, 70, 36, 0.35);
-  border-radius: var(--radius-pill);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--accent-hero);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  backdrop-filter: blur(10px);
-}
-
 .hero-headline-massive {
   font-size: clamp(3.2rem, 7vw, 6.2rem);
   font-weight: 900;

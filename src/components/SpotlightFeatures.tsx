@@ -19,10 +19,6 @@ export default function SpotlightFeatures() {
   return (
     <section className="section-full section-spacing" id="spotlight-features">
       <div>
-        <div className="pill-eyebrow" style={{ marginBottom: '12px' }}>
-          <span>●</span>
-          <span>Architectural Integrity</span>
-        </div>
         <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, letterSpacing: '-0.03em' }}>
           Engineered for Extreme Focus
         </h2>
@@ -69,7 +65,7 @@ export default function SpotlightFeatures() {
               <path d="M7 11V7a5 5 0 0 1 10 0v4" />
             </svg>
           </div>
-          <h3 className="spotlight-card-heading">Single-Device Fortress</h3>
+          <h3 className="spotlight-card-heading">Single-Device Session Guard</h3>
           <p className="spotlight-card-body">
             Strict single-active-session policy. Logging in from a new device revokes previous sessions
             instantly, backed by tamper-proof encrypted HttpOnly cookies.
@@ -84,7 +80,7 @@ export default function SpotlightFeatures() {
               <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
             </svg>
           </div>
-          <h3 className="spotlight-card-heading">Sub-Millisecond Cloudflare Edge</h3>
+          <h3 className="spotlight-card-heading">Cloudflare Edge & SQLite D1</h3>
           <p className="spotlight-card-body">
             Deployed on Cloudflare Workers and SQLite D1 at the edge. 0.0ms cold starts across 300+ edge nodes
             globally with automated typechecked migrations.

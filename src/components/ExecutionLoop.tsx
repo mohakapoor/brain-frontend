@@ -41,10 +41,6 @@ export default function ExecutionLoop() {
     <section className="section-full section-spacing" id="the-loop">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px' }}>
         <div>
-          <div className="pill-eyebrow" style={{ marginBottom: '12px' }}>
-            <span>●</span>
-            <span>The Core Engine</span>
-          </div>
           <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, letterSpacing: '-0.03em' }}>
             The 5-Step Execution Loop
           </h2>

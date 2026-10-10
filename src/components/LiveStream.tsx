@@ -22,9 +22,6 @@ export default function LiveStream({ tasks, onToggleTask, onAddTask }: LiveStrea
       <div className="stream-box-wide reveal-on-scroll">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
           <div>
-            <div className="pill-eyebrow" style={{ marginBottom: '8px' }}>
-              <span>●</span> Interactive Prototype
-            </div>
             <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, letterSpacing: '-0.02em', marginTop: '4px' }}>
               Live Execution Stream
             </h2>

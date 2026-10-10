@@ -11,14 +11,9 @@ export default function DualitySection({ velocityPercentage, taskCount }: Dualit
   return (
     <section className="dual-interface-card" id="two-interfaces">
       <div className="dual-tabs-header">
-        <div>
-          <span className="pill-eyebrow" style={{ marginBottom: '8px' }}>
-            <span>✦</span> Duality of Experience
-          </span>
-          <h2 style={{ fontSize: '1.5rem', fontWeight: 700, letterSpacing: '-0.02em', marginTop: '6px' }}>
-            Two Interfaces. One Source of Truth.
-          </h2>
-        </div>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, letterSpacing: '-0.02em' }}>
+          Two Interfaces. One Source of Truth.
+        </h2>
 
         <div className="interface-toggle-pills">
           <button
@@ -115,7 +110,7 @@ export default function DualitySection({ velocityPercentage, taskCount }: Dualit
               <span className="term-dot yellow" />
               <span className="term-dot green" />
               <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginLeft: '8px' }}>
-                remote-mcp-worker · protocol v2024-11-05
+                mcp-server · v2024-11-05
               </span>
             </div>
 

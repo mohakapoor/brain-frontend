@@ -18,11 +18,6 @@ export default function Hero({ children }: HeroProps) {
 
   return (
     <section className="section-full hero-stage" id="top">
-      <div className="pill-eyebrow">
-        <span>●</span>
-        <span>Personal Execution System</span>
-      </div>
-
       <h1 className="hero-headline-massive">
         Capture Quickly.<br />
         Execute Relentlessly.
@@ -43,14 +38,13 @@ export default function Hero({ children }: HeroProps) {
           <div className="floating-ui-card">
             <div className="floating-card-header">
               <span className="floating-card-title">Instant Capture</span>
-              <span className="pulse-dot" />
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span className="kbd-badge" style={{ fontSize: '0.85rem', padding: '4px 10px' }}>Cmd + K</span>
-              <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>Offload flow</span>
+              <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>Quick add</span>
             </div>
             <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-              Zero categorized menus
+              Zero friction
             </div>
           </div>
         </div>
@@ -71,7 +65,7 @@ export default function Hero({ children }: HeroProps) {
               SELECT * FROM tasks WHERE user_id = ?
             </div>
             <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-              Sub-millisecond V8 edge isolate
+              Direct SQLite read
             </div>
           </div>
         </div>
@@ -83,16 +77,16 @@ export default function Hero({ children }: HeroProps) {
         >
           <div className="floating-ui-card">
             <div className="floating-card-header">
-              <span className="floating-card-title">Session Shield</span>
+              <span className="floating-card-title">Session Guard</span>
               <span style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', fontWeight: 700 }}>
                 HttpOnly
               </span>
             </div>
             <div style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-primary)' }}>
-              Single-Device Policy Active
+              Single Device Active
             </div>
             <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-              Revokes stale logins automatically
+              Revokes older logins automatically
             </div>
           </div>
         </div>
@@ -106,7 +100,7 @@ export default function Hero({ children }: HeroProps) {
               <span className="chrome-dot" />
             </div>
             <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
-              brain.mohakapoor.in · edge session
+              https://brain.mohakapoor.in
             </span>
             <div style={{ width: '40px' }} />
           </div>
