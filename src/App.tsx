@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import type { DemoTask } from './types/landing'
 import { useScrollReveal } from './hooks/useScrollReveal'
 import Navbar from './components/Navbar'
@@ -14,6 +14,23 @@ import Footer from './components/Footer'
 export default function App() {
   useScrollReveal()
   const [activeNav, setActiveNav] = useState('loop')
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('brain_theme')
+      if (saved === 'light' || saved === 'dark') return saved
+    }
+    return 'dark'
+  })
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem('brain_theme', theme)
+  }, [theme])
+
+  const handleToggleTheme = () => {
+    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'))
+  }
+
   const [tasks, setTasks] = useState<DemoTask[]>([
     { id: 1, title: 'Implement Cloudflare D1 atomic migrations', completed: true, tag: 'INFRA' },
     { id: 2, title: 'Configure single-device HttpOnly session guard', completed: true, tag: 'SECURITY' },
@@ -51,8 +68,10 @@ export default function App() {
     <div>
       <Navbar
         activeNav={activeNav}
+        theme={theme}
         onNavClick={handleNavClick}
         onSignInClick={() => handleNavClick('auth-gateway', 'auth')}
+        onToggleTheme={handleToggleTheme}
       />
 
       <Hero>
