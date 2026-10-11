@@ -9,8 +9,9 @@ export default function HomePage() {
   const [activeSection, setActiveSection] = useState<'summary' | 'tasks' | 'finance' | 'fitness' | 'library'>('summary')
   const { user, logout } = useAuth()
   const navigate = useNavigate()
-  const { tasks, isLoading: tasksLoading, error: tasksError, createTask, toggleTask, deleteTask } = useTasks()
+  const { tasks, isLoading: tasksLoading, error: tasksError, createTask, toggleTask, editTask, deleteTask } = useTasks()
   const pendingCount = tasks.filter(t => t.completed === 0).length
+
 
   const handleLogout = async () => {
     await logout()
@@ -150,7 +151,9 @@ export default function HomePage() {
               error={tasksError}
               onToggle={toggleTask}
               onDelete={deleteTask}
+              onEdit={editTask}
             />
+
           </>
         ) : activeSection === 'summary' ? (
           <>
