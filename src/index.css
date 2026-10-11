@@ -1082,101 +1082,6 @@ body::before {
   color: var(--text-muted);
 }
 
-/* 7. Auth Gateway Section */
-.auth-stage-container {
-  max-width: 500px;
-  width: 100%;
-  margin: 0 auto;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-medium);
-  border-radius: var(--radius-card);
-  padding: 40px 36px;
-  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8);
-}
-
-.auth-tabs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: rgba(0, 0, 0, 0.35);
-  padding: 4px;
-  border-radius: var(--radius-pill);
-  margin-bottom: 28px;
-}
-
-.auth-tab-btn {
-  background: transparent;
-  border: none;
-  color: var(--text-secondary);
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 600;
-  padding: 10px;
-  border-radius: var(--radius-pill);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.auth-tab-btn.active {
-  background: #ffffff;
-  color: var(--text-inverted);
-}
-
-.auth-form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.input-field-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.input-label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.text-input {
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-item);
-  padding: 14px 18px;
-  color: var(--text-primary);
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
-  outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.text-input:focus {
-  border-color: var(--accent-hero);
-  box-shadow: 0 0 0 2px var(--accent-hero-glow);
-}
-
-.btn-submit-auth {
-  margin-top: 10px;
-  background: var(--accent-hero);
-  color: #ffffff;
-  border: none;
-  padding: 15px;
-  border-radius: var(--radius-pill);
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 10px 20px var(--accent-hero-glow);
-}
-
-.btn-submit-auth:hover {
-  background: #ff5636;
-  transform: translateY(-1px);
-}
 
 /* 8. Linear.app Scroll Reveal System */
 .reveal-on-scroll {
@@ -1759,15 +1664,7 @@ body::before {
   letter-spacing: -0.03em;
   line-height: 1.1;
   color: var(--text-primary);
-  margin-bottom: 16px;
-}
-
-.landing-cta-subtext {
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-  max-width: 580px;
-  margin: 0 auto 36px;
-  line-height: 1.6;
+  margin-bottom: 32px;
 }
 
 .landing-cta-actions {
@@ -1807,17 +1704,6 @@ body::before {
 
 .landing-cta-secondary-link:hover {
   color: var(--text-primary);
-}
-
-.landing-cta-note {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 36px;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  font-family: var(--font-mono);
 }
 
 /* ==========================================================================
