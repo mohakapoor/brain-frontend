@@ -66,8 +66,8 @@ export default function LoginPage() {
 
       setSuccessMsg(
         authMode === 'register'
-          ? 'Account created successfully! Session initialized.'
-          : 'Logged in successfully! Session initialized.'
+          ? 'Account created successfully! Welcome.'
+          : 'Welcome back!'
       )
       setIsLoading(false)
     } catch {
@@ -98,12 +98,12 @@ export default function LoginPage() {
         <div className="login-card">
           <div className="login-card-header">
             <h1 className="login-title">
-              {authMode === 'login' ? 'Sign In to Brain' : 'Register with Invite'}
+              {authMode === 'login' ? 'Sign In' : 'Register'}
             </h1>
             <p className="login-subtitle">
               {authMode === 'login'
-                ? 'Access your private second brain and execution queue.'
-                : 'Join the private execution network using your access key.'}
+                ? 'Welcome back. Enter your details to continue.'
+                : 'Enter your invite code to get started.'}
             </p>
           </div>
 
@@ -143,7 +143,7 @@ export default function LoginPage() {
                 id="auth-username"
                 type="text"
                 className="text-input"
-                placeholder="e.g. mohak"
+                placeholder="e.g. Jane Doe"
                 value={username}
                 onChange={e => setUsername(e.target.value)}
                 autoComplete="username"
@@ -182,17 +182,15 @@ export default function LoginPage() {
 
             <button type="submit" className="btn-submit-auth" disabled={isLoading}>
               {isLoading
-                ? 'Connecting to Edge...'
-                : authMode === 'login'
-                  ? 'Access Second Brain'
-                  : 'Create Account'}
+                ? (authMode === 'login' ? 'Signing in...' : 'Creating account...')
+                : (authMode === 'login' ? 'Sign In' : 'Register')}
             </button>
           </form>
 
           <footer className="login-card-footer">
-            <span>Single active device policy</span>
+            <span>Single-device login</span>
             <span>•</span>
-            <span>Encrypted HttpOnly session</span>
+            <span>Encrypted session</span>
           </footer>
         </div>
       </main>

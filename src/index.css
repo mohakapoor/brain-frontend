@@ -78,6 +78,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: clip;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -101,6 +102,10 @@ body::before {
   z-index: 0;
   background-image: radial-gradient(rgba(255, 255, 255, 0.075) 1.2px, transparent 1.2px);
   background-size: 24px 24px;
+}
+
+[data-theme="light"] body::before {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.065) 1.2px, transparent 1.2px);
 }
 
 #root {
@@ -1713,7 +1718,7 @@ body::before {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--bg-canvas);
+  background: transparent;
   position: relative;
   z-index: 1;
 }
@@ -1722,7 +1727,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 36px;
+  padding: 18px 32px;
 }
 
 .login-back-link {
@@ -1745,20 +1750,20 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px 80px;
+  padding: 16px 20px 24px;
 }
 
 .login-card {
   width: 100%;
-  max-width: 440px;
+  max-width: 420px;
   background: var(--bg-surface);
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-card);
-  padding: 36px 32px;
+  padding: 28px 28px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 16px;
 }
 
 .login-card-header {
@@ -1766,17 +1771,17 @@ body::before {
 }
 
 .login-title {
-  font-size: 1.65rem;
+  font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .login-subtitle {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .auth-tabs {
@@ -1790,12 +1795,12 @@ body::before {
 
 .auth-tab-btn {
   flex: 1;
-  padding: 9px 12px;
+  padding: 8px 10px;
   border: none;
   background: transparent;
   color: var(--text-secondary);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-family: var(--font-sans);
   border-radius: 8px;
   cursor: pointer;
@@ -1809,9 +1814,9 @@ body::before {
 }
 
 .auth-alert {
-  padding: 10px 14px;
+  padding: 9px 12px;
   border-radius: 8px;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   line-height: 1.4;
   text-align: left;
 }
@@ -1831,18 +1836,18 @@ body::before {
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .input-field-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   text-align: left;
 }
 
 .input-label {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: var(--text-secondary);
   text-transform: uppercase;
@@ -1853,8 +1858,8 @@ body::before {
   background: var(--bg-surface-elevated);
   border: 1px solid var(--border-subtle);
   border-radius: 10px;
-  padding: 12px 14px;
-  font-size: 0.95rem;
+  padding: 10px 14px;
+  font-size: 0.92rem;
   color: var(--text-primary);
   font-family: var(--font-sans);
   outline: none;
@@ -1871,14 +1876,14 @@ body::before {
   color: #ffffff;
   border: none;
   border-radius: 10px;
-  padding: 13px;
-  font-size: 0.95rem;
+  padding: 11px;
+  font-size: 0.92rem;
   font-weight: 700;
   font-family: var(--font-sans);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 4px 16px var(--accent-hero-glow);
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
 .btn-submit-auth:hover {
@@ -1900,7 +1905,7 @@ body::before {
   font-size: 0.72rem;
   color: var(--text-muted);
   font-family: var(--font-mono);
-  padding-top: 6px;
+  padding-top: 4px;
   border-top: 1px solid var(--border-subtle);
 }
 
