@@ -1223,124 +1223,118 @@ body::before {
 }
 
 /* ==========================================================================
-   BEYOND TASKS: STICKY SPLIT-SCREEN SCROLLYTELLING SHOWCASE
-   (ZERO CARDS, ZERO TABLES, PURE VECTOR GEOMETRY ON CANVAS)
+   BEYOND THE BASICS: SCROLL-DRIVEN SHOWCASE
+   (ONE SYSTEM, MORE OF YOUR LIFE · ZERO CARDS, ZERO TABLES)
    ========================================================================== */
-.beyond-masthead {
-  margin-bottom: 8px;
+.beyond-showcase-section {
+  position: relative;
+  padding: 100px 40px 140px;
 }
 
-.beyond-title {
-  font-size: clamp(2rem, 3.6vw, 3rem);
+/* 1. Section Introduction */
+.beyond-intro-masthead {
+  margin-bottom: 80px;
+}
+
+.beyond-intro-title {
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
   font-weight: 900;
   letter-spacing: -0.03em;
   color: var(--text-primary);
-  margin: 6px 0 8px;
+  margin: 10px 0 14px;
 }
 
-.beyond-subtitle {
+.beyond-intro-desc {
   color: var(--text-secondary);
-  font-size: 1.05rem;
-  max-width: 720px;
-  line-height: 1.5;
+  font-size: 1.15rem;
+  max-width: 700px;
+  line-height: 1.6;
 }
 
-/* Scrollytelling Section: Provides the scroll runway (280vh) */
-.beyond-scrolly-section {
+/* 2 & 3. Main Split-Screen Grid */
+.beyond-main-grid {
+  display: grid;
+  grid-template-columns: 44% 56%;
+  gap: 72px;
+  align-items: start;
   position: relative;
-  min-height: 280vh;
-  padding: 0 40px;
 }
 
-/* Sticky Viewport: Stays pinned in viewport while user scrolls through the 3 phases */
-.scrolly-sticky-viewport {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 105px;
-  height: calc(100vh - 125px);
-  max-height: 800px;
+/* Left Column: Vertically scrolling sequence of feature narratives */
+.beyond-narrative-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.beyond-narrative-stage {
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 18px;
-}
-
-/* Split-Screen Scrollytelling Container */
-/* Split-Screen Scrollytelling Container: Shared Top Datum Line */
-.scrolly-split-container {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 64px;
-  align-items: stretch;
-  width: 100%;
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 24px;
-}
-
-.scrolly-stuck-text-stage {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  min-height: 460px;
   gap: 16px;
+  padding: 48px 0;
+  border-top: 1px solid var(--border-subtle);
+  transition: opacity 0.4s ease, border-color 0.4s ease;
 }
 
-.stuck-phase-header {
+.beyond-narrative-stage.stage-focused {
+  opacity: 1;
+  border-top-color: var(--border-medium);
+}
+
+.beyond-narrative-stage.stage-idle {
+  opacity: 0.28;
+}
+
+.stage-eyebrow-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 24px;
-  margin-bottom: 4px;
 }
 
-.stuck-phase-tag {
+.stage-eyebrow-text {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  transition: color 0.3s ease;
 }
 
-.stuck-counter-pill {
+.stage-concept-tag {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 800;
+  font-size: 0.68rem;
+  font-weight: 700;
   color: var(--text-muted);
+  padding: 2px 8px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
 }
 
-.stuck-headline {
+.stage-narrative-title {
   font-size: clamp(1.8rem, 2.5vw, 2.4rem);
   font-weight: 900;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   color: var(--text-primary);
   line-height: 1.2;
   margin: 0;
-  transition: color 0.3s ease;
 }
 
-.stuck-lead-body {
-  font-size: 1rem;
+.stage-narrative-desc {
+  font-size: 1.05rem;
   color: var(--text-secondary);
-  line-height: 1.55;
+  line-height: 1.65;
   margin: 0;
 }
 
-.stuck-detail-body {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-  margin: 0;
-}
-
-.stuck-proof-list {
+.stage-proof-list {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 2px;
+  border-top: 1px dashed var(--border-subtle);
+  padding-top: 16px;
+  margin-top: 4px;
 }
 
-.stuck-proof-row {
+.stage-proof-item {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1349,68 +1343,33 @@ body::before {
   color: var(--text-muted);
 }
 
-.stuck-proof-arrow {
+.stage-proof-glyph {
   font-weight: 800;
 }
 
-/* Quick-Jump Stepper Pills on Left */
-.stuck-stepper-pills {
-  display: flex;
-  gap: 8px;
-  margin-top: auto;
-  border-top: 1px dashed var(--border-subtle);
-  padding-top: 14px;
-  flex-wrap: wrap;
-}
-
-.stuck-stepper-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  border: 1px solid var(--border-medium);
-  border-radius: 999px;
-  padding: 5px 12px;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.stuck-stepper-btn:hover {
-  color: var(--text-primary);
-  border-color: var(--text-secondary);
-}
-
-.stuck-stepper-btn.active {
-  color: var(--text-primary);
-  border-color: var(--border-focus);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.stuck-stepper-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  transition: background 0.3s ease;
-}
-
-/* RIGHT PANEL: Single Visual Viewport (Exactly ONE View At A Time) */
-.scrolly-single-visual-viewport {
-  position: relative;
-  height: 100%;
-  min-height: 460px;
+/* Right Column: Sticky Visual Canvas */
+.beyond-sticky-stage-col {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 105px;
+  align-self: start;
   width: 100%;
 }
 
-.scrolly-visual-stage {
+.beyond-visual-canvas {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 24px;
+}
+
+.stage-canvas-panel {
   position: absolute;
-  top: 0;
+  top: 24px;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 24px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1418,119 +1377,190 @@ body::before {
   transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.scrolly-visual-stage.active {
+.stage-canvas-panel.active {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
-.scrolly-visual-stage.dormant {
+.stage-canvas-panel.dormant {
   opacity: 0;
   transform: translateY(16px);
   pointer-events: none;
 }
 
-/* Synchronized Top Telemetry Header on Right */
-.visual-phase-header {
+.panel-status-strip {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   height: 24px;
-  margin-bottom: 4px;
-  white-space: nowrap;
-}
-
-.visual-channel-tag {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 800;
-  color: var(--text-muted);
-  white-space: nowrap;
+  letter-spacing: 0.06em;
 }
 
-/* Visual Top Telemetry */
-.visual-hero-num-row {
+.panel-status-pill {
+  color: var(--text-secondary);
+}
+
+.panel-meta-tag {
+  color: var(--text-muted);
+}
+
+/* Stage 01: Tasks & Goals Specific Canvas */
+.canvas-tasks-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.task-flow-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease;
+}
+
+.task-flow-item.task-active {
+  border-color: var(--accent-hero);
+  background: rgba(255, 70, 36, 0.04);
+}
+
+.task-check-circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-medium);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  flex-shrink: 0;
+}
+
+.task-check-circle.done {
+  background: var(--accent-emerald);
+  border-color: var(--accent-emerald);
+  color: #000;
+  font-weight: 900;
+}
+
+.task-check-circle.active {
+  border-color: var(--accent-hero);
+  box-shadow: 0 0 8px var(--accent-hero);
+}
+
+.task-flow-title {
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  flex: 1;
+}
+
+.task-flow-title.done {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.task-flow-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  padding: 2px 6px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+}
+
+.task-flow-tag.priority {
+  color: var(--accent-hero);
+  border-color: rgba(255, 70, 36, 0.35);
+}
+
+/* Stage 02 & 03: Finance & Fitness Hero Metrics */
+.finance-hero-metric {
   display: flex;
   align-items: baseline;
   gap: 12px;
-  margin: 0;
-  line-height: 1.2;
+  margin: 8px 0 0;
 }
 
-.visual-metric-val {
+.metric-val {
   font-family: var(--font-mono);
-  font-size: clamp(2.8rem, 4.8vw, 4.2rem);
+  font-size: clamp(2.8rem, 4.5vw, 4rem);
   font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 1;
-  transition: color 0.3s ease;
 }
 
-.visual-metric-unit {
+.metric-unit {
   font-family: var(--font-mono);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-muted);
 }
 
-.visual-substat-strip {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-  white-space: nowrap;
-}
-
-.visual-substat-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  transition: background 0.3s ease;
-  animation: pulsar-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-
-@keyframes pulsar-ping {
-  0% { transform: scale(0.9); opacity: 0.8; }
-  50% { transform: scale(1.3); opacity: 1; }
-  100% { transform: scale(0.9); opacity: 0.8; }
-}
-
-/* Vector Waveform Viewport (Zero Box, Directly on Canvas) */
-.visual-waveform-viewport {
+.canvas-waveform-wrap {
   width: 100%;
-  height: 160px;
+  height: 180px;
   position: relative;
-  margin: 4px 0;
+  margin: 6px 0;
   overflow: hidden;
 }
 
-.visual-waveform-svg {
+.canvas-waveform-svg {
   width: 100%;
   height: 100%;
   display: block;
 }
 
-.visual-wave-path {
-  transition: d 0.45s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.4s ease, filter 0.4s ease;
+/* Stage 04: Personal Library Nodes */
+.library-nodes-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 16px 0;
 }
 
-.node-pulse {
-  animation: intercept-pulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-  transition: fill 0.3s ease;
+.library-node-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
 }
 
-@keyframes intercept-pulse {
-  0% { transform: scale(0.9); opacity: 0.7; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(0.9); opacity: 0.7; }
+.node-category {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--accent-cyan);
 }
 
-/* Real-time Command & Telemetry Terminal Ticker */
-.visual-event-terminal {
+.node-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.node-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Shared Panel Footer Ticker */
+.panel-footer-ticker {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -1543,20 +1573,47 @@ body::before {
   min-height: 48px;
 }
 
-.terminal-prompt-dot {
+.ticker-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
   flex-shrink: 0;
-  margin-top: 6px;
-  transition: background 0.3s ease;
 }
 
-.terminal-code-text {
+/* 4. Closing Statement */
+.beyond-closing-statement {
+  margin-top: 100px;
+  text-align: center;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 80px;
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.closing-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--accent-hero);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.closing-title {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin: 0 0 16px;
+}
+
+.closing-desc {
+  font-size: 1.15rem;
   color: var(--text-secondary);
-  font-size: 0.8rem;
-  margin: 0;
-  line-height: 1.5;
+  line-height: 1.65;
+  max-width: 680px;
+  margin-inline: auto;
 }
 
 /* Light Mode Overrides */
@@ -1566,20 +1623,27 @@ body::before {
 
 /* Responsive Handling (< 960px) */
 @media (max-width: 960px) {
-  .scrolly-split-container {
+  .beyond-main-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 48px;
   }
 
-  .scrolly-stuck-text-wrapper {
+  .beyond-sticky-stage-col {
     position: relative;
     top: 0;
   }
 
-  .scrolly-visual-card {
-    min-height: unset;
-    padding: 36px 0;
-    opacity: 1;
+  .beyond-visual-canvas {
+    height: 440px;
+  }
+
+  .beyond-narrative-stage {
+    min-height: auto;
+    padding: 32px 0;
+  }
+
+  .beyond-narrative-stage.stage-idle {
+    opacity: 0.7;
   }
 }
 
