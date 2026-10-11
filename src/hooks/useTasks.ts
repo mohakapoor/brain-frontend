@@ -59,6 +59,18 @@ export function useTasks() {
   const toggleTask = async (id: number, currentCompleted: number): Promise<boolean> => {
     setError(null)
     const nextCompleted = currentCompleted === 0
+
+    // Optimistic UI update: instantly update visual state and ordering
+    setTasks(prev => {
+      const updated = prev.map(t =>
+        t.id === id ? { ...t, completed: nextCompleted ? 1 : 0 } : t
+      )
+      return updated.sort((a, b) => {
+        if (a.completed !== b.completed) return a.completed - b.completed
+        return b.created_at - a.created_at
+      })
+    })
+
     try {
       const res = await fetch(`${apiBase}/api_brain/tasks/${id}`, {
         method: 'PATCH',
@@ -72,7 +84,6 @@ export function useTasks() {
       const data: SingleTaskResponse = await res.json()
       setTasks(prev => {
         const updated = prev.map(t => (t.id === id ? data.task : t))
-        // Maintain incomplete first ordering
         return updated.sort((a, b) => {
           if (a.completed !== b.completed) return a.completed - b.completed
           return b.created_at - a.created_at
@@ -80,6 +91,8 @@ export function useTasks() {
       })
       return true
     } catch (err: any) {
+      // Revert to backend state if the network request failed
+      fetchTasks()
       setError(err.message || 'Error updating task')
       return false
     }
