@@ -1,11 +1,16 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { useTasks } from '../hooks/useTasks'
+import { TaskInput } from '../components/tasks/TaskInput'
+import { TasksView } from '../components/tasks/TasksView'
 
 export default function HomePage() {
   const [activeSection, setActiveSection] = useState<'summary' | 'tasks' | 'finance' | 'fitness' | 'library'>('summary')
   const { user, logout } = useAuth()
   const navigate = useNavigate()
+  const { tasks, isLoading: tasksLoading, error: tasksError, createTask, toggleTask, deleteTask } = useTasks()
+  const pendingCount = tasks.filter(t => t.completed === 0).length
 
   const handleLogout = async () => {
     await logout()
@@ -123,43 +128,81 @@ export default function HomePage() {
 
       {/* 2. Main Executive Content Area */}
       <main className="app-main-canvas">
-        {/* Top bar */}
-        <header className="app-top-header">
-          <div>
-            <span className="header-eyebrow">SYSTEM STATUS · ALL CHANNELS ACTIVE</span>
-            <h1 className="header-page-title">Executive Summary</h1>
-          </div>
-          <div className="header-actions">
-            <span className="kbd-badge">Cmd + K</span>
-            <button type="button" className="btn-pill-orange" style={{ padding: '8px 18px', fontSize: '0.85rem' }}>
-              Quick Capture
-            </button>
-          </div>
-        </header>
+        {activeSection === 'tasks' ? (
+          <>
+            <header className="app-top-header">
+              <div>
+                <span className="header-eyebrow">PILLAR 01 · TASK CAPTURE &amp; EXECUTION</span>
+                <h1 className="header-page-title">Tasks &amp; Goals</h1>
+              </div>
+              <div className="header-actions">
+                <span className="header-eyebrow" style={{ margin: 0 }}>
+                  {pendingCount} {pendingCount === 1 ? 'task' : 'tasks'} pending
+                </span>
+              </div>
+            </header>
 
-        {/* 4 Pillars Executive Grid */}
-        <div className="executive-summary-grid">
-          {/* Pillar 1: Tasks */}
-          <div className="executive-card">
-            <div className="executive-card-header">
-              <span className="executive-card-tag">01 · EXECUTION</span>
-              <span className="executive-metric-pill">4 Pending</span>
-            </div>
-            <h2 className="executive-card-title">Tasks &amp; Goals</h2>
-            <div className="executive-preview-body">
-              <div className="executive-task-item">
-                <span className="check-box-preview" />
-                <span>Review quarterly revenue and runway</span>
+            <TaskInput onAdd={createTask} />
+
+            <TasksView
+              tasks={tasks}
+              isLoading={tasksLoading}
+              error={tasksError}
+              onToggle={toggleTask}
+              onDelete={deleteTask}
+            />
+          </>
+        ) : activeSection === 'summary' ? (
+          <>
+            {/* Top bar */}
+            <header className="app-top-header">
+              <div>
+                <span className="header-eyebrow">SYSTEM STATUS · ALL CHANNELS ACTIVE</span>
+                <h1 className="header-page-title">Executive Summary</h1>
               </div>
-              <div className="executive-task-item">
-                <span className="check-box-preview" />
-                <span>Deep work: write chapter 3 draft</span>
+              <div className="header-actions">
+                <button
+                  type="button"
+                  className="btn-pill-orange"
+                  style={{ padding: '8px 18px', fontSize: '0.85rem' }}
+                  onClick={() => setActiveSection('tasks')}
+                >
+                  Capture Task
+                </button>
               </div>
-            </div>
-            <div className="executive-card-footer">
-              <span>Velocity: 60% completion rate</span>
-            </div>
-          </div>
+            </header>
+
+            {/* 4 Pillars Executive Grid */}
+            <div className="executive-summary-grid">
+              {/* Pillar 1: Tasks */}
+              <div
+                className="executive-card"
+                style={{ cursor: 'pointer' }}
+                onClick={() => setActiveSection('tasks')}
+              >
+                <div className="executive-card-header">
+                  <span className="executive-card-tag">01 · EXECUTION</span>
+                  <span className="executive-metric-pill">{pendingCount} Pending</span>
+                </div>
+                <h2 className="executive-card-title">Tasks &amp; Goals</h2>
+                <div className="executive-preview-body">
+                  {tasks.slice(0, 2).map(t => (
+                    <div key={t.id} className="executive-task-item">
+                      <span className={`check-box-preview ${t.completed === 1 ? 'checked' : ''}`} />
+                      <span>{t.title}</span>
+                    </div>
+                  ))}
+                  {tasks.length === 0 && (
+                    <div className="executive-task-item" style={{ color: 'var(--text-muted)' }}>
+                      <span>No active tasks yet. Click to add.</span>
+                    </div>
+                  )}
+                </div>
+                <div className="executive-card-footer">
+                  <span>Click to view and manage tasks &rarr;</span>
+                </div>
+              </div>
+
 
           {/* Pillar 2: Finances */}
           <div className="executive-card">
@@ -213,6 +256,23 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+      </>
+
+        ) : (
+          <div className="tasks-state-box">
+            <span className="empty-glyph">✦</span>
+            <p className="empty-title">Phase 1 Boundary</p>
+            <p className="empty-subtitle">This pillar will unlock in subsequent phases per docs/phase1.md.</p>
+            <button
+              type="button"
+              className="btn-pill-primary"
+              style={{ marginTop: '16px', padding: '8px 16px', fontSize: '0.85rem' }}
+              onClick={() => setActiveSection('tasks')}
+            >
+              Go to Tasks &amp; Goals
+            </button>
+          </div>
+        )}
       </main>
     </div>
   )
