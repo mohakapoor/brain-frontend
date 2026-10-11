@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import LandingPage from './pages/LandingPage'
 import LoginPage from './pages/LoginPage'
+import HomePage from './pages/HomePage'
 
 export default function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
@@ -28,6 +29,7 @@ export default function App() {
         element={<LandingPage theme={theme} onToggleTheme={handleToggleTheme} />}
       />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/home" element={<HomePage />} />
     </Routes>
   )
 }
