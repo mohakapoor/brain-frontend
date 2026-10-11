@@ -86,20 +86,20 @@ export default function DualitySection({ velocityPercentage, taskCount }: Dualit
             {/* Telemetry Chips (No emojis, clean labels) */}
             <div className="telemetry-grid">
               <div className="telemetry-chip">
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Edge Latency</span>
-                <span style={{ fontSize: '1.35rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>~1.2ms</span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Response Time</span>
+                <span style={{ fontSize: '1.35rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>&lt; 50ms</span>
               </div>
               <div className="telemetry-chip">
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Session Policy</span>
-                <span style={{ fontSize: '1.35rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>Single Device</span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Focus Mode</span>
+                <span style={{ fontSize: '1.35rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>Active</span>
               </div>
               <div className="telemetry-chip">
                 <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Active Queue</span>
                 <span style={{ fontSize: '1.35rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>{taskCount} items</span>
               </div>
               <div className="telemetry-chip">
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Auth Protocol</span>
-                <span style={{ fontSize: '1.35rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>HttpOnly</span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Completion Rate</span>
+                <span style={{ fontSize: '1.35rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>High</span>
               </div>
             </div>
           </div>
@@ -124,7 +124,7 @@ export default function DualitySection({ velocityPercentage, taskCount }: Dualit
               <span className="term-text" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.88rem' }}>
                 → Dispatched tool: <code>create_task</code><br />
                 → Arguments: <code>{`{ "title": "Probability revision & problem sets", "tag": "STUDY" }`}</code><br />
-                → Result: <code>201 Created (persisted to Cloudflare D1 · User ID 1)</code>
+                → Result: <code>Added to tomorrow's schedule</code>
               </span>
             </div>
 

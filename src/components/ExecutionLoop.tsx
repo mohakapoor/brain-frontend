@@ -27,9 +27,9 @@ export default function ExecutionLoop() {
     {
       num: '04',
       title: 'Track',
-      tag: 'PERSIST',
-      desc: 'Cloudflare D1 SQLite',
-      output: 'Sub-ms Immutable Write',
+      tag: 'LOG',
+      desc: 'Automatic Daily History',
+      output: 'Zero manual logging',
       cls: 'node-pos-right',
     },
     {

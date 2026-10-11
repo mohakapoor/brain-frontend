@@ -7,16 +7,16 @@ export default function ProofStats() {
       desc: 'Offload thoughts before working memory decays. Zero categorization friction.',
     },
     {
-      number: '0.0ms',
+      number: '0s',
       color: 'var(--accent-emerald)',
-      label: 'Cold Start Time',
-      desc: 'V8 isolates running across 300+ edge locations worldwide for instant response.',
+      label: 'Load Time',
+      desc: 'Opens instantly every time. No waiting for heavy apps to wake up.',
     },
     {
       number: '100%',
       color: 'var(--accent-cyan)',
-      label: 'Tenant Isolation',
-      desc: 'Strict D1 SQLite foreign key cascades and single-device encrypted cookies.',
+      label: 'Private & Yours',
+      desc: 'Your data is strictly isolated. No trackers, no bloat, no ads.',
     },
     {
       number: '1 Source',

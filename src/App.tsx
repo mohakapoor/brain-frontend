@@ -31,11 +31,11 @@ export default function App() {
   }
 
   const [tasks, setTasks] = useState<DemoTask[]>([
-    { id: 1, title: 'Implement Cloudflare D1 atomic migrations', completed: true, tag: 'INFRA' },
-    { id: 2, title: 'Configure single-device HttpOnly session guard', completed: true, tag: 'SECURITY' },
+    { id: 1, title: 'Review quarterly revenue and runway', completed: true, tag: 'FINANCE' },
+    { id: 2, title: 'Deep work: write chapter 3 draft', completed: true, tag: 'WRITING' },
     { id: 3, title: 'Probability revision & problem sets', completed: false, tag: 'STUDY' },
-    { id: 4, title: 'Design high-velocity task execution dashboard', completed: false, tag: 'FRONTEND' },
-    { id: 5, title: 'Centralize Zod 4 request validation pipeline', completed: false, tag: 'CORE' },
+    { id: 4, title: 'Ship v1 landing page update', completed: false, tag: 'WORK' },
+    { id: 5, title: 'Strength session: 5x5 squats', completed: false, tag: 'HEALTH' },
   ])
 
   const handleNavClick = (sectionId: string, navKey: string) => {

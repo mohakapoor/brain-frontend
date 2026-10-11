@@ -24,8 +24,8 @@ export default function Hero({ children }: HeroProps) {
       </h1>
 
       <p className="hero-lead-text">
-        An external prefrontal cortex engineered to eliminate working memory decay.
-        Capture tasks in under 500ms via visual web or natural language AI.
+        A fast, distraction-free system to clear your mind and get things done.
+        Capture thoughts instantly from your browser or through AI.
       </p>
 
       {/* Hero Showcase with Linear.app pop-out levitating micro-cards */}
@@ -49,44 +49,44 @@ export default function Hero({ children }: HeroProps) {
           </div>
         </div>
 
-        {/* Floating Card 2: D1 Edge Query Telemetry Card */}
+        {/* Floating Card 2: Real-time Sync Card */}
         <div
           className="floating-ui-wrapper top-right"
           style={{ transform: card2Transform, opacity: cardOpacity }}
         >
           <div className="floating-ui-card">
             <div className="floating-card-header">
-              <span className="floating-card-title">Cloudflare D1 Query</span>
+              <span className="floating-card-title">Instant Sync</span>
               <span style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', fontWeight: 700 }}>
-                0.0ms cold
+                Real-time
               </span>
             </div>
             <div className="floating-code-snippet">
-              SELECT * FROM tasks WHERE user_id = ?
+              Synced across web &amp; AI
             </div>
             <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-              Direct SQLite read
+              No spinners, no lag
             </div>
           </div>
         </div>
 
-        {/* Floating Card 3: Session Guard Card */}
+        {/* Floating Card 3: Active Focus Card */}
         <div
           className="floating-ui-wrapper bottom-right"
           style={{ transform: card3Transform, opacity: cardOpacity }}
         >
           <div className="floating-ui-card">
             <div className="floating-card-header">
-              <span className="floating-card-title">Session Guard</span>
+              <span className="floating-card-title">Active Focus</span>
               <span style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', fontWeight: 700 }}>
-                HttpOnly
+                Live
               </span>
             </div>
             <div style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-primary)' }}>
-              Single Device Active
+              1 Current Priority
             </div>
             <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-              Revokes older logins automatically
+              Finish one thing before starting another
             </div>
           </div>
         </div>
