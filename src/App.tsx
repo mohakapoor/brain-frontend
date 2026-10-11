@@ -40,13 +40,14 @@ export default function App() {
           }
         />
         <Route
-          path="/home"
+          path="/home/*"
           element={
             <ProtectedRoute>
               <HomePage />
             </ProtectedRoute>
           }
         />
+
       </Routes>
     </AuthProvider>
   )
