@@ -69,6 +69,11 @@
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 html {
   width: 100%;
   min-height: 100vh;
@@ -246,6 +251,9 @@ body::before {
 }
 
 .btn-pill-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--text-primary);
   color: var(--text-inverted);
   border: none;
@@ -255,6 +263,7 @@ body::before {
   padding: 10px 22px;
   border-radius: var(--radius-pill);
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
