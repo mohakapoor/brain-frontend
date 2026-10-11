@@ -170,15 +170,17 @@ export default function BeyondTasksShowcase() {
           <div className="scrolly-single-visual-viewport">
             {DOMAINS.map(item => (
               <div key={item.id} className={`scrolly-visual-stage ${activeDomain === item.id ? 'active' : 'dormant'}`}>
-                <div className="visual-top-telemetry">
-                  <div className="visual-hero-num-row">
-                    <span className="visual-metric-val" style={{ color: item.accentColor }}>{item.metric}</span>
-                    <span className="visual-metric-unit">{item.unit}</span>
-                  </div>
+                <div className="visual-phase-header">
                   <div className="visual-substat-strip">
                     <span className="visual-substat-dot" style={{ background: item.accentColor }} />
                     <span className="visual-substat-text">{item.substat}</span>
                   </div>
+                  <span className="visual-channel-tag">LIVE TELEMETRY // CH-0{DOMAINS.findIndex(d => d.id === item.id) + 1}</span>
+                </div>
+
+                <div className="visual-hero-num-row">
+                  <span className="visual-metric-val" style={{ color: item.accentColor }}>{item.metric}</span>
+                  <span className="visual-metric-unit">{item.unit}</span>
                 </div>
 
                 <div className="visual-waveform-viewport">

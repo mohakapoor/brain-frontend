@@ -1227,7 +1227,6 @@ body::before {
    (ZERO CARDS, ZERO TABLES, PURE VECTOR GEOMETRY ON CANVAS)
    ========================================================================== */
 .beyond-masthead {
-.beyond-masthead {
   margin-bottom: 8px;
 }
 
@@ -1267,27 +1266,32 @@ body::before {
 }
 
 /* Split-Screen Scrollytelling Container */
+/* Split-Screen Scrollytelling Container: Shared Top Datum Line */
 .scrolly-split-container {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 64px;
-  align-items: center;
+  align-items: stretch;
   width: 100%;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 24px;
 }
 
 .scrolly-stuck-text-stage {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 460px;
   gap: 16px;
-  padding: 20px 0;
-  border-top: 1px solid var(--border-subtle);
 }
 
 .stuck-phase-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2px;
+  height: 24px;
+  margin-bottom: 4px;
 }
 
 .stuck-phase-tag {
@@ -1310,22 +1314,22 @@ body::before {
   font-weight: 900;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  line-height: 1.25;
+  line-height: 1.2;
   margin: 0;
   transition: color 0.3s ease;
 }
 
 .stuck-lead-body {
-  font-size: 1.02rem;
+  font-size: 1rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.55;
   margin: 0;
 }
 
 .stuck-detail-body {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
-  line-height: 1.55;
+  line-height: 1.5;
   margin: 0;
 }
 
@@ -1333,9 +1337,7 @@ body::before {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  border-top: 1px dashed var(--border-subtle);
-  padding-top: 14px;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .stuck-proof-row {
@@ -1355,7 +1357,9 @@ body::before {
 .stuck-stepper-pills {
   display: flex;
   gap: 8px;
-  margin-top: 10px;
+  margin-top: auto;
+  border-top: 1px dashed var(--border-subtle);
+  padding-top: 14px;
   flex-wrap: wrap;
 }
 
@@ -1396,7 +1400,8 @@ body::before {
 /* RIGHT PANEL: Single Visual Viewport (Exactly ONE View At A Time) */
 .scrolly-single-visual-viewport {
   position: relative;
-  height: 420px;
+  height: 100%;
+  min-height: 460px;
   width: 100%;
 }
 
@@ -1408,10 +1413,8 @@ body::before {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 18px;
-  padding: 24px 0;
-  border-top: 1px solid var(--border-subtle);
+  justify-content: space-between;
+  padding: 0;
   transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1419,7 +1422,6 @@ body::before {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
-  border-top-color: var(--border-medium);
 }
 
 .scrolly-visual-stage.dormant {
@@ -1428,17 +1430,32 @@ body::before {
   pointer-events: none;
 }
 
-/* Visual Top Telemetry */
-.visual-top-telemetry {
+/* Synchronized Top Telemetry Header on Right */
+.visual-phase-header {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 24px;
+  margin-bottom: 4px;
+  white-space: nowrap;
 }
 
+.visual-channel-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Visual Top Telemetry */
 .visual-hero-num-row {
   display: flex;
   align-items: baseline;
   gap: 12px;
+  margin: 0;
+  line-height: 1.2;
 }
 
 .visual-metric-val {
@@ -1458,14 +1475,14 @@ body::before {
 }
 
 .visual-substat-strip {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--text-secondary);
-  margin-top: 2px;
+  white-space: nowrap;
 }
 
 .visual-substat-dot {
@@ -1485,16 +1502,16 @@ body::before {
 /* Vector Waveform Viewport (Zero Box, Directly on Canvas) */
 .visual-waveform-viewport {
   width: 100%;
-  height: 180px;
+  height: 160px;
   position: relative;
-  margin: 6px 0;
+  margin: 4px 0;
+  overflow: hidden;
 }
 
 .visual-waveform-svg {
   width: 100%;
   height: 100%;
   display: block;
-  overflow: visible;
 }
 
 .visual-wave-path {
@@ -1515,13 +1532,15 @@ body::before {
 /* Real-time Command & Telemetry Terminal Ticker */
 .visual-event-terminal {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-secondary);
   border-top: 1px dashed var(--border-subtle);
   padding-top: 14px;
+  margin-top: auto;
+  min-height: 48px;
 }
 
 .terminal-prompt-dot {
