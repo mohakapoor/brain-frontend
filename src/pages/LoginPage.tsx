@@ -1,7 +1,10 @@
 import { useState } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
 export default function LoginPage() {
+  const navigate = useNavigate()
+  const { setUser, checkAuth } = useAuth()
   const [searchParams, setSearchParams] = useSearchParams()
   const initialMode = searchParams.get('mode') === 'register' ? 'register' : 'login'
   const [authMode, setAuthMode] = useState<'login' | 'register'>(initialMode)
@@ -66,12 +69,13 @@ export default function LoginPage() {
         return
       }
 
-      setSuccessMsg(
-        authMode === 'register'
-          ? 'Account created successfully! Welcome.'
-          : 'Welcome back!'
-      )
-      setIsLoading(false)
+      if (data.user) {
+        setUser(data.user)
+      } else {
+        await checkAuth()
+      }
+
+      navigate('/home', { replace: true })
     } catch {
       setErrorMsg('Unable to connect to the server. Please check your connection.')
       setIsLoading(false)

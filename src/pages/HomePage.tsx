@@ -1,8 +1,17 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
 export default function HomePage() {
   const [activeSection, setActiveSection] = useState<'summary' | 'tasks' | 'finance' | 'fitness' | 'library'>('summary')
+  const { user, logout } = useAuth()
+  const navigate = useNavigate()
+
+  const handleLogout = async () => {
+    await logout()
+    navigate('/login', { replace: true })
+  }
+
 
   return (
     <div className="app-shell">
@@ -87,12 +96,28 @@ export default function HomePage() {
 
         <div className="sidebar-footer">
           <div className="user-profile-badge">
-            <div className="user-avatar-glyph">U</div>
+            <div className="user-avatar-glyph">
+              {user?.username ? user.username.charAt(0).toUpperCase() : 'U'}
+            </div>
             <div className="user-profile-meta">
-              <span className="user-name">Second Brain User</span>
+              <span className="user-name">{user?.username ?? 'Second Brain User'}</span>
               <span className="user-status-text">Active Workspace</span>
             </div>
           </div>
+
+          <button
+            type="button"
+            className="sidebar-nav-item"
+            style={{ marginTop: '8px', width: '100%' }}
+            onClick={handleLogout}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+              <polyline points="16 17 21 12 16 7" />
+              <line x1="21" y1="12" x2="9" y2="12" />
+            </svg>
+            <span>Sign Out</span>
+          </button>
         </div>
       </aside>
 
