@@ -106,31 +106,50 @@ export default function DualitySection({ velocityPercentage, taskCount }: Dualit
         ) : (
           <div className="mcp-terminal-screen">
             <div className="terminal-header">
-              <span className="term-dot red" />
-              <span className="term-dot yellow" />
-              <span className="term-dot green" />
-              <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginLeft: '8px' }}>
-                mcp-server · v2024-11-05
+              <div className="terminal-header-left">
+                <span className="term-dot red" />
+                <span className="term-dot yellow" />
+                <span className="term-dot green" />
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginLeft: '6px', fontFamily: 'var(--font-mono)' }}>
+                  chatgpt / claude · mcp connection
+                </span>
+              </div>
+              <span style={{ fontSize: '0.72rem', color: 'var(--accent-emerald)', fontWeight: 600 }}>
+                ● Active Bridge
               </span>
             </div>
 
-            <div className="term-dialogue-row user-prompt">
-              <span className="term-label">Natural Language Prompt (ChatGPT / Claude)</span>
-              <span className="term-text">"Add probability revision to tomorrow's tasks."</span>
+            <div className="chat-conversation-stream">
+              {/* User message bubble */}
+              <div className="chat-bubble-user-wrap">
+                <div className="chat-bubble-user">
+                  <div className="chat-bubble-user-text">
+                    Add probability revision to tomorrow's study schedule.
+                  </div>
+                  <span className="chat-bubble-user-meta">9:41 AM · Claude Desktop</span>
+                </div>
+              </div>
+
+              {/* AI assistant response */}
+              <div className="chat-message-ai-wrap">
+                <div className="chat-ai-glyph">✦</div>
+                <div className="chat-ai-content">
+                  <p className="chat-ai-text">
+                    Scheduled <strong>Probability revision &amp; problem sets</strong> for tomorrow under <strong>Study</strong>.
+                  </p>
+                  <div className="chat-action-confirmation">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    <span>Created in Second Brain · Priority 1</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="term-dialogue-row ai-response">
-              <span className="term-label" style={{ color: 'var(--accent-emerald)' }}>MCP Tool Invocation Dispatched</span>
-              <span className="term-text" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.88rem' }}>
-                → Dispatched tool: <code>create_task</code><br />
-                → Arguments: <code>{`{ "title": "Probability revision & problem sets", "tag": "STUDY" }`}</code><br />
-                → Result: <code>Added to tomorrow's schedule</code>
-              </span>
-            </div>
-
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '8px', paddingLeft: '8px' }}>
-              <span style={{ color: 'var(--accent-emerald)' }}>●</span>
-              <span>Both interfaces share identical state. Zero duplicated databases or conflicting business rules.</span>
+            <div className="chat-thread-footer">
+              <span className="chat-sync-indicator" />
+              <span>Bi-directional sync · Instantly reflected on your web dashboard</span>
             </div>
           </div>
         )}

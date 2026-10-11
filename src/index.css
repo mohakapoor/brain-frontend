@@ -548,30 +548,42 @@ body::before {
   transform: translateY(-2px);
 }
 
-/* MCP Terminal Dialogue Screen */
+/* MCP Conversational AI Screen */
 .mcp-terminal-screen {
-  background: #090b10;
-  border: 1px solid var(--border-subtle);
+  background: #08090e;
+  border: 1px solid var(--border-medium);
   border-radius: var(--radius-item);
-  padding: 24px;
+  padding: 22px 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   min-height: 310px;
-  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 2px 14px rgba(0, 0, 0, 0.65);
+}
+
+[data-theme="light"] .mcp-terminal-screen {
+  background: #f0f2f7;
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .terminal-header {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--border-subtle);
 }
 
+.terminal-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .term-dot {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
 }
 
@@ -579,45 +591,125 @@ body::before {
 .term-dot.yellow { background: #ffbd2e; }
 .term-dot.green { background: #27c93f; }
 
-.term-dialogue-row {
+.chat-conversation-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 6px 0;
+}
+
+/* User Message Bubble */
+.chat-bubble-user-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.chat-bubble-user {
+  max-width: 82%;
+  background: #141722;
+  border: 1px solid var(--border-medium);
+  padding: 12px 18px;
+  border-radius: 16px 16px 4px 16px;
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding: 14px 18px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-.term-dialogue-row.user-prompt {
-  border-left: 3px solid var(--accent-cyan);
+[data-theme="light"] .chat-bubble-user {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-.term-dialogue-row.ai-response {
-  border-left: 3px solid var(--accent-emerald);
+.chat-bubble-user-text {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.45;
 }
 
-.term-label {
+.chat-bubble-user-meta {
   font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  align-self: flex-end;
+  font-family: var(--font-mono);
+}
+
+/* AI Message Stream */
+.chat-message-ai-wrap {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  max-width: 94%;
+}
+
+.chat-ai-glyph {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  color: var(--accent-hero);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.chat-ai-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-ai-text {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.chat-ai-text strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+[data-theme="light"] .chat-ai-text strong {
+  color: #090a0f;
+}
+
+.chat-action-confirmation {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 229, 153, 0.08);
+  border: 1px solid rgba(0, 229, 153, 0.25);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  color: var(--accent-emerald);
+  font-weight: 500;
+  width: fit-content;
+}
+
+.chat-thread-footer {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
   color: var(--text-muted);
 }
 
-.term-text {
-  font-size: 0.95rem;
-  color: var(--text-primary);
-  line-height: 1.5;
-}
-
-.term-text code {
-  background: rgba(255, 255, 255, 0.08);
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-family: var(--font-mono);
-  font-size: 0.85em;
-  color: var(--accent-emerald);
+.chat-sync-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
 }
 
 /* 3. Proof Stats Grid (Outcrowd Massive Proof) */
