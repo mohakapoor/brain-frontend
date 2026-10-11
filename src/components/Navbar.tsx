@@ -1,12 +1,14 @@
+import { Link } from 'react-router-dom'
+
 interface NavbarProps {
   activeNav: string
   theme: 'dark' | 'light'
   onNavClick: (sectionId: string, navKey: string) => void
-  onSignInClick: () => void
+  onSignInClick?: () => void
   onToggleTheme: () => void
 }
 
-export default function Navbar({ activeNav, theme, onNavClick, onSignInClick, onToggleTheme }: NavbarProps) {
+export default function Navbar({ activeNav, theme, onNavClick, onToggleTheme }: NavbarProps) {
   return (
     <header className="nav-pill-wrapper">
       <a href="#top" className="nav-brand">
@@ -65,9 +67,9 @@ export default function Navbar({ activeNav, theme, onNavClick, onSignInClick, on
           )}
         </button>
 
-        <button type="button" className="btn-pill-primary" onClick={onSignInClick}>
+        <Link to="/login" className="btn-pill-primary">
           Sign In
-        </button>
+        </Link>
       </div>
     </header>
   )
