@@ -7,9 +7,10 @@ interface TasksViewProps {
   error: string | null
   onToggle: (id: number, completed: number) => void
   onDelete: (id: number) => void
+  onEdit?: (id: number, title: string) => void
 }
 
-export function TasksView({ tasks, isLoading, error, onToggle, onDelete }: TasksViewProps) {
+export function TasksView({ tasks, isLoading, error, onToggle, onDelete, onEdit }: TasksViewProps) {
   if (isLoading) {
     return (
       <div className="tasks-state-box">
@@ -53,7 +54,13 @@ export function TasksView({ tasks, isLoading, error, onToggle, onDelete }: Tasks
         ) : (
           <div className="tasks-list">
             {pendingTasks.map(task => (
-              <TaskItem key={task.id} task={task} onToggle={onToggle} onDelete={onDelete} />
+              <TaskItem
+                key={task.id}
+                task={task}
+                onToggle={onToggle}
+                onDelete={onDelete}
+                onEdit={onEdit}
+              />
             ))}
           </div>
         )}
@@ -69,7 +76,13 @@ export function TasksView({ tasks, isLoading, error, onToggle, onDelete }: Tasks
 
           <div className="tasks-list">
             {completedTasks.map(task => (
-              <TaskItem key={task.id} task={task} onToggle={onToggle} onDelete={onDelete} />
+              <TaskItem
+                key={task.id}
+                task={task}
+                onToggle={onToggle}
+                onDelete={onDelete}
+                onEdit={onEdit}
+              />
             ))}
           </div>
         </div>
