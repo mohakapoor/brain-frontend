@@ -38,7 +38,9 @@ export default function LoginPage() {
     setIsLoading(true)
 
     try {
-      const endpoint = authMode === 'register' ? '/api_brain/auth/register' : '/api_brain/auth/login'
+      const apiBase = import.meta.env.VITE_API_BASE_URL
+      const path = authMode === 'register' ? '/api_brain/auth/register' : '/api_brain/auth/login'
+      const endpoint = `${apiBase}${path}`
       const payload = authMode === 'register'
         ? { username: username.trim(), password, inviteCode: inviteCode.trim() }
         : { username: username.trim(), password }
