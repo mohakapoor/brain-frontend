@@ -32,7 +32,7 @@ export default function Navbar({ activeNav, theme, onNavClick, onSignInClick, on
         <button
           type="button"
           className={`nav-link-btn ${activeNav === 'domains' ? 'active' : ''}`}
-          onClick={() => onNavClick('ecosystem-pillars', 'domains')}
+          onClick={() => onNavClick('beyond-tasks', 'domains')}
         >
           Ecosystem
         </button>

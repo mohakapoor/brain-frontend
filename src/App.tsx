@@ -6,6 +6,7 @@ import Hero from './components/Hero'
 import DualitySection from './components/DualitySection'
 import ProofStats from './components/ProofStats'
 import ExecutionLoop from './components/ExecutionLoop'
+import BeyondTasksShowcase from './components/BeyondTasksShowcase'
 import LiveStream from './components/LiveStream'
 import AuthGateway from './components/AuthGateway'
 import Footer from './components/Footer'
@@ -82,6 +83,7 @@ export default function App() {
 
       <ProofStats />
       <ExecutionLoop />
+      <BeyondTasksShowcase />
       <LiveStream
         tasks={tasks}
         onToggleTask={handleToggleTask}
