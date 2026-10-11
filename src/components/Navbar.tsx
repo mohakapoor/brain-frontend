@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
 interface NavbarProps {
   activeNav: string
@@ -9,6 +10,8 @@ interface NavbarProps {
 }
 
 export default function Navbar({ activeNav, theme, onNavClick, onToggleTheme }: NavbarProps) {
+  const { user } = useAuth()
+
   return (
     <header className="nav-pill-wrapper">
       <a href="#top" className="nav-brand">
@@ -67,9 +70,15 @@ export default function Navbar({ activeNav, theme, onNavClick, onToggleTheme }: 
           )}
         </button>
 
-        <Link to="/login" className="btn-pill-primary">
-          Sign In
-        </Link>
+        {user ? (
+          <Link to="/home" className="btn-pill-primary">
+            Open Dashboard →
+          </Link>
+        ) : (
+          <Link to="/login" className="btn-pill-primary">
+            Sign In
+          </Link>
+        )}
       </div>
     </header>
   )
