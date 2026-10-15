@@ -37,16 +37,16 @@
 }
 
 [data-theme="light"] {
-  /* Canvas & Surfaces */
-  --bg-canvas: #f8f9fb;
-  --bg-surface: #ffffff;
+  /* Canvas & Surfaces (Editorial Cream to White) */
+  --bg-canvas: #fbf9f5;
+  --bg-surface: #f3efe6;
   --bg-surface-elevated: #ffffff;
-  --bg-surface-subtle: rgba(0, 0, 0, 0.035);
+  --bg-surface-subtle: rgba(45, 40, 32, 0.05);
   
   /* Borders */
-  --border-subtle: rgba(0, 0, 0, 0.08);
-  --border-medium: rgba(0, 0, 0, 0.15);
-  --border-hover: rgba(0, 0, 0, 0.3);
+  --border-subtle: rgba(45, 40, 32, 0.1);
+  --border-medium: rgba(45, 40, 32, 0.18);
+  --border-hover: rgba(45, 40, 32, 0.35);
   
   /* Accents (Calibrated for High Light Contrast) */
   --accent-hero: #e53818;
@@ -57,9 +57,9 @@
   --accent-violet: #7c3aed;
   
   /* Text */
-  --text-primary: #090a0f;
-  --text-secondary: #4a5162;
-  --text-muted: #7d8699;
+  --text-primary: #12100d;
+  --text-secondary: #575249;
+  --text-muted: #8c8578;
   --text-inverted: #ffffff;
 }
 
@@ -96,7 +96,7 @@ body {
   position: relative;
 }
 
-/* Global Blueprint Dot-Grid Fixed Canvas (Clean Dots Only, No Stuck Glow) */
+/* Global Blueprint Dot-Grid Fixed Canvas */
 body::before {
   content: "";
   position: fixed;
@@ -110,7 +110,7 @@ body::before {
 }
 
 [data-theme="light"] body::before {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.065) 1.2px, transparent 1.2px);
+  background-image: radial-gradient(rgba(45, 40, 32, 0.22) 1.2px, transparent 1.2px);
 }
 
 #root {
@@ -392,6 +392,12 @@ body::before {
   text-align: left;
 }
 
+[data-theme="light"] .floating-ui-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(45, 40, 32, 0.14);
+  box-shadow: 0 20px 40px -8px rgba(45, 40, 32, 0.12);
+}
+
 .floating-ui-wrapper.top-left .floating-ui-card {
   animation: floatOrb 6s ease-in-out infinite;
 }
@@ -442,6 +448,11 @@ body::before {
   border: 1px solid var(--border-subtle);
 }
 
+[data-theme="light"] .floating-code-snippet {
+  background: rgba(45, 40, 32, 0.06);
+  border-color: rgba(45, 40, 32, 0.12);
+}
+
 /* The Centerpiece Device Frame */
 .device-mockup-frame {
   width: 100%;
@@ -455,6 +466,14 @@ body::before {
   position: relative;
 }
 
+[data-theme="light"] .device-mockup-frame {
+  background: #f3efe6;
+  border-color: rgba(45, 40, 32, 0.16);
+  box-shadow: 
+    0 30px 80px -15px rgba(45, 40, 32, 0.14),
+    0 0 70px -10px rgba(229, 56, 24, 0.12);
+}
+
 .device-chrome-bar {
   display: flex;
   align-items: center;
@@ -462,6 +481,11 @@ body::before {
   padding: 16px 24px;
   background: rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid var(--border-subtle);
+}
+
+[data-theme="light"] .device-chrome-bar {
+  background: rgba(45, 40, 32, 0.05);
+  border-bottom-color: rgba(45, 40, 32, 0.1);
 }
 
 .chrome-dots {
@@ -564,6 +588,12 @@ body::before {
   justify-content: center;
   gap: 12px;
   flex: 1;
+}
+
+[data-theme="light"] .dashboard-preview-card {
+  background: #ffffff;
+  border-color: rgba(45, 40, 32, 0.12);
+  box-shadow: 0 4px 14px rgba(45, 40, 32, 0.05);
 }
 
 .preview-card-header {
@@ -671,9 +701,9 @@ body::before {
 }
 
 [data-theme="light"] .mcp-terminal-screen {
-  background: #f0f2f7;
-  border-color: rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+  border-color: rgba(45, 40, 32, 0.12);
+  box-shadow: 0 4px 14px rgba(45, 40, 32, 0.05);
 }
 
 .terminal-header {
@@ -2630,6 +2660,11 @@ button.custom-checkbox {
   border-top: 1px solid var(--border-subtle);
   padding: 40px 0 32px;
   width: 100%;
+}
+
+[data-theme="light"] .site-footer {
+  background: #f1ece1;
+  border-top-color: rgba(45, 40, 32, 0.12);
 }
 
 .site-footer-inner {
