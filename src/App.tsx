@@ -44,7 +44,7 @@ export default function App() {
           path="/home/*"
           element={
             <ProtectedRoute>
-              <HomePage />
+              <HomePage theme={theme} onToggleTheme={handleToggleTheme} />
             </ProtectedRoute>
           }
         />

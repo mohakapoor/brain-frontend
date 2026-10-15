@@ -2371,6 +2371,12 @@ body::before {
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
+[data-theme="light"] .executive-card {
+  background: #ffffff;
+  border-color: rgba(45, 40, 32, 0.12);
+  box-shadow: 0 4px 14px rgba(45, 40, 32, 0.05);
+}
+
 .executive-card:hover {
   border-color: var(--border-hover);
   transform: translateY(-2px);
@@ -2398,6 +2404,11 @@ body::before {
   background: rgba(255, 255, 255, 0.05);
   color: var(--text-primary);
   border: 1px solid var(--border-subtle);
+}
+
+[data-theme="light"] .executive-metric-pill {
+  background: rgba(45, 40, 32, 0.06);
+  border-color: rgba(45, 40, 32, 0.1);
 }
 
 .executive-card-title {
