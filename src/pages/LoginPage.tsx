@@ -94,10 +94,10 @@ export default function LoginPage() {
           </svg>
           <span>Back to Home</span>
         </Link>
-        <div className="nav-brand">
+        <Link to="/" className="nav-brand">
           <span className="brand-glyph">✦</span>
           <span>Brain</span>
-        </div>
+        </Link>
       </header>
 
       {/* Main Centered Auth Card */}
