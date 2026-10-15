@@ -144,9 +144,6 @@ export default function DualitySection({ velocityPercentage, taskCount }: Dualit
                   chatgpt / claude · mcp connection
                 </span>
               </div>
-              <span style={{ fontSize: '0.72rem', color: 'var(--accent-emerald)', fontWeight: 600 }}>
-                ● Active Bridge
-              </span>
             </div>
 
             <div className="chat-conversation-stream">
