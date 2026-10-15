@@ -150,6 +150,12 @@ body::before {
   margin-top: 16px;
 }
 
+[data-theme="light"] .nav-pill-wrapper {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(45, 40, 32, 0.12);
+  box-shadow: 0 12px 30px -10px rgba(45, 40, 32, 0.1);
+}
+
 .nav-brand {
   display: flex;
   align-items: center;
@@ -175,6 +181,10 @@ body::before {
   border-radius: var(--radius-pill);
 }
 
+[data-theme="light"] .nav-links {
+  background: rgba(45, 40, 32, 0.07);
+}
+
 .nav-link-btn {
   background: transparent;
   border: none;
@@ -194,6 +204,12 @@ body::before {
   background: #ffffff;
   color: var(--text-inverted);
   font-weight: 600;
+}
+
+[data-theme="light"] .nav-link-btn.active {
+  background: #ffffff;
+  color: #12100d;
+  box-shadow: 0 2px 8px rgba(45, 40, 32, 0.1);
 }
 
 .nav-actions {
@@ -528,6 +544,11 @@ body::before {
   border-radius: var(--radius-pill);
 }
 
+[data-theme="light"] .interface-toggle-pills {
+  background: rgba(45, 40, 32, 0.08);
+  border-color: rgba(45, 40, 32, 0.12);
+}
+
 .interface-tab-btn {
   display: inline-flex;
   align-items: center;
@@ -552,6 +573,12 @@ body::before {
   background: #ffffff;
   color: #07080a;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .interface-tab-btn.active {
+  background: #ffffff;
+  color: #12100d;
+  box-shadow: 0 2px 8px rgba(45, 40, 32, 0.12);
 }
 
 .dual-grid-web {
