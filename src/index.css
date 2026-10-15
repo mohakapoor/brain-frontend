@@ -2366,60 +2366,25 @@ body::before {
   gap: 6px;
 }
 
-.task-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  transition: border-color 0.15s ease, background 0.15s ease;
-}
-
-.task-row:hover {
-  border-color: var(--border-medium);
-  background: var(--bg-surface-elevated);
-}
-
-.task-row.completed {
-  opacity: 0.6;
-}
-
-.task-row.completed .task-title-text {
-  text-decoration: line-through;
-  color: var(--text-muted);
-}
-
-.task-checkbox {
-  width: 20px;
-  height: 20px;
-  border-radius: 5px;
-  border: 1.5px solid rgba(255, 255, 255, 0.32);
-  background: rgba(255, 255, 255, 0.04);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: #fff;
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+button.custom-checkbox {
+  background: transparent;
   padding: 0;
-  flex-shrink: 0;
+  cursor: pointer;
+  outline: none;
 }
 
-[data-theme="light"] .task-checkbox {
-  border-color: rgba(0, 0, 0, 0.35);
-  background: rgba(0, 0, 0, 0.03);
+.task-item-row .task-row-actions {
+  opacity: 0;
+  transition: opacity 0.15s ease;
 }
 
-.task-checkbox:hover {
-  border-color: var(--accent-hero);
-  background: rgba(255, 70, 36, 0.1);
+.task-item-row:hover .task-row-actions,
+.task-item-row:focus-within .task-row-actions {
+  opacity: 1;
 }
 
-.task-checkbox.checked {
-  background: var(--accent-hero);
-  border-color: var(--accent-hero);
+.task-item-row.completed {
+  opacity: 0.6;
 }
 
 

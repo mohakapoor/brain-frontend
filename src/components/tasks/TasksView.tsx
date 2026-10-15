@@ -52,7 +52,7 @@ export function TasksView({ tasks, isLoading, error, onToggle, onDelete, onEdit 
         {pendingTasks.length === 0 ? (
           <div className="tasks-empty-sub">All clear. No pending tasks.</div>
         ) : (
-          <div className="tasks-list">
+          <div className="task-stream-list">
             {pendingTasks.map(task => (
               <TaskItem
                 key={task.id}
@@ -74,7 +74,7 @@ export function TasksView({ tasks, isLoading, error, onToggle, onDelete, onEdit 
             <span className="tasks-count-badge">{completedTasks.length}</span>
           </div>
 
-          <div className="tasks-list">
+          <div className="task-stream-list">
             {completedTasks.map(task => (
               <TaskItem
                 key={task.id}

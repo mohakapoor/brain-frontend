@@ -21,22 +21,23 @@ export function TaskInput({ onAdd }: TaskInputProps) {
   }
 
   return (
-    <form className="task-capture-bar" onSubmit={handleSubmit}>
+    <form className="capture-input-box" onSubmit={handleSubmit} style={{ marginBottom: '24px' }}>
       <input
         type="text"
-        className="task-capture-input"
-        placeholder="What do you need to do?"
+        className="capture-input"
+        placeholder="What do you need to execute right now?"
         value={title}
         onChange={e => setTitle(e.target.value)}
         disabled={isSubmitting}
         autoFocus
       />
+      <span className="kbd-badge">↵ Enter</span>
       <button
         type="submit"
-        className="task-capture-btn"
+        className="btn-pill-orange"
         disabled={isSubmitting || !title.trim()}
       >
-        {isSubmitting ? 'Adding...' : 'Add'}
+        {isSubmitting ? 'Capturing...' : 'Capture'}
       </button>
     </form>
   )
