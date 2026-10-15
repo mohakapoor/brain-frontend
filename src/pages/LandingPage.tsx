@@ -19,7 +19,7 @@ interface LandingPageProps {
 export default function LandingPage({ theme, onToggleTheme }: LandingPageProps) {
   useDocumentTitle('Brain')
   useScrollReveal()
-  const [activeNav, setActiveNav] = useState('loop')
+  const [activeNav, setActiveNav] = useState('interfaces')
 
   const [tasks, setTasks] = useState<DemoTask[]>([
     { id: 1, title: 'Review quarterly revenue and runway', completed: true, tag: 'FINANCE' },

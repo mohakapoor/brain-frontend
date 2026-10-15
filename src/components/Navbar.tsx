@@ -26,17 +26,17 @@ export default function Navbar({ activeNav, theme, onNavClick, onToggleTheme }: 
       <nav className="nav-links">
         <button
           type="button"
-          className={`nav-link-btn ${activeNav === 'loop' ? 'active' : ''}`}
-          onClick={() => onNavClick('the-loop', 'loop')}
-        >
-          The Loop
-        </button>
-        <button
-          type="button"
           className={`nav-link-btn ${activeNav === 'interfaces' ? 'active' : ''}`}
           onClick={() => onNavClick('two-interfaces', 'interfaces')}
         >
           Two Interfaces
+        </button>
+        <button
+          type="button"
+          className={`nav-link-btn ${activeNav === 'loop' ? 'active' : ''}`}
+          onClick={() => onNavClick('the-loop', 'loop')}
+        >
+          The Loop
         </button>
         <button
           type="button"
