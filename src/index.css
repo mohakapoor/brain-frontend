@@ -1085,13 +1085,13 @@ body::before {
 }
 
 /* Responsive: Preserved Scaled Orbital Closed-Loop */
-@media (max-width: 820px) {
+@media (max-width: 768px) {
   .orbital-loop-wrapper {
     margin-top: 24px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    padding-bottom: 8px;
+    padding-bottom: 6px;
   }
 
   .orbital-loop-wrapper::-webkit-scrollbar {
@@ -1100,61 +1100,49 @@ body::before {
 
   .orbital-diagram-canvas {
     width: 100%;
-    min-width: 540px;
+    min-width: 440px;
     aspect-ratio: 1000 / 440;
     position: relative;
   }
 
   .orbital-node {
-    padding: 10px 12px;
-    border-radius: 12px;
+    padding: 8px 10px;
+    border-radius: 10px;
     gap: 2px;
   }
 
   .orbital-title {
-    font-size: 1rem;
+    font-size: 0.92rem;
   }
 
-  .orbital-desc {
-    font-size: 0.68rem;
-  }
-
+  .orbital-desc,
   .orbital-output {
-    font-size: 0.65rem;
+    display: none;
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 480px) {
   .orbital-diagram-canvas {
-    min-width: 470px;
+    min-width: 350px;
   }
 
   .orbital-node {
-    padding: 8px 10px;
-    border-radius: 10px;
+    padding: 6px 7px;
+    border-radius: 8px;
     gap: 1px;
   }
 
   .orbital-num {
-    font-size: 0.65rem;
+    font-size: 0.62rem;
   }
 
   .orbital-tag {
-    font-size: 0.52rem;
-    padding: 1px 4px;
+    font-size: 0.5rem;
+    padding: 1px 3px;
   }
 
   .orbital-title {
-    font-size: 0.88rem;
-  }
-
-  .orbital-desc {
-    font-size: 0.64rem;
-  }
-
-  .orbital-output {
-    font-size: 0.6rem;
-    line-height: 1.25;
+    font-size: 0.78rem;
   }
 }
 
