@@ -1880,6 +1880,37 @@ body::before {
   box-shadow: 0 0 0 3px var(--accent-hero-glow);
 }
 
+.password-input-wrapper {
+  position: relative;
+}
+
+.password-input-wrapper .text-input {
+  width: 100%;
+  padding-right: 44px;
+  box-sizing: border-box;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: color 0.2s ease;
+}
+
+.password-toggle-btn:hover {
+  color: var(--text-primary);
+}
+
 .btn-submit-auth {
   background: var(--accent-hero);
   color: #ffffff;
