@@ -14,10 +14,14 @@ export default function Navbar({ activeNav, theme, onNavClick, onToggleTheme }: 
 
   return (
     <header className="nav-pill-wrapper">
-      <a href="#top" className="nav-brand">
+      <Link
+        to="/"
+        className="nav-brand"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      >
         <span className="brand-glyph">✦</span>
         <span>Brain</span>
-      </a>
+      </Link>
 
       <nav className="nav-links">
         <button
