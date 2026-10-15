@@ -221,6 +221,10 @@ body::before {
   gap: 12px;
 }
 
+.nav-btn-mobile {
+  display: none;
+}
+
 .status-badge {
   display: flex;
   align-items: center;
@@ -1294,12 +1298,123 @@ body::before {
 }
 
 @media (max-width: 768px) {
+  .nav-pill-wrapper {
+    margin-inline: 16px;
+    margin-top: 12px;
+    padding: 6px 14px;
+  }
   .nav-links { display: none; }
+  .section-full { padding-inline: 20px; }
   .section-spacing { padding-block: 60px; }
-  .hero-headline-massive { font-size: 2.8rem; }
+  .hero-stage {
+    padding-top: 80px;
+    padding-bottom: 30px;
+    gap: 20px;
+  }
+  .hero-headline-massive { font-size: 2.6rem; }
+  .hero-lead-text { font-size: 1.05rem; }
+  .showcase-stage { padding-top: 20px; padding-bottom: 60px; }
+  .device-body { padding: 20px; }
   .stats-grid-wide { grid-template-columns: 1fr; }
-  .loop-grid-5 { grid-template-columns: 1fr; }
+  .stat-card-big { padding: 28px 24px; }
+  .stream-box-wide { padding: 24px 20px; gap: 20px; }
+  .landing-cta-container { padding: 48px 24px; }
+  .landing-cta-headline { font-size: 2.3rem; margin-bottom: 24px; }
   .landing-footer { flex-direction: column; gap: 14px; }
+}
+
+@media (max-width: 480px) {
+  .nav-pill-wrapper {
+    margin-inline: 10px;
+    margin-top: 10px;
+    padding: 6px 10px 6px 14px;
+  }
+  .nav-brand { font-size: 1.05rem; gap: 8px; }
+  .nav-actions { gap: 8px; }
+  .btn-pill-primary {
+    padding: 7px 13px;
+    font-size: 0.8rem;
+  }
+  .nav-btn-desktop { display: none; }
+  .nav-btn-mobile { display: inline; }
+  .section-full { padding-inline: 14px; }
+  .section-spacing { padding-block: 44px; }
+  .hero-stage {
+    padding-top: 60px;
+    padding-bottom: 20px;
+    gap: 16px;
+  }
+  .hero-headline-massive { font-size: 2.15rem; line-height: 1.1; }
+  .hero-lead-text { font-size: 0.95rem; line-height: 1.5; }
+  .device-body { padding: 14px; }
+  .device-chrome-bar { padding: 10px 14px; }
+  .dual-tabs-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .dual-tabs-header h2 { font-size: 1.2rem !important; }
+  .interface-toggle-pills {
+    width: 100%;
+    display: flex;
+    padding: 3px;
+  }
+  .interface-tab-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 6px 6px;
+    font-size: 0.75rem;
+    gap: 5px;
+  }
+  .focal-velocity-card {
+    padding: 18px 14px;
+    min-height: auto;
+  }
+  .dashboard-preview-card { padding: 14px 12px; }
+  .mcp-terminal-screen { padding: 14px; }
+  .stream-box-wide { padding: 18px 14px; gap: 16px; }
+  .capture-input-box {
+    padding: 5px 6px 5px 12px;
+  }
+  .capture-input { font-size: 0.92rem; }
+  .kbd-badge { display: none; }
+  .task-item-row {
+    padding: 12px 14px;
+    gap: 8px;
+  }
+  .task-left { gap: 10px; }
+  .task-text { font-size: 0.88rem; }
+  .task-meta-tag { font-size: 0.68rem; padding: 2px 7px; }
+  .stat-card-big { padding: 20px 16px; }
+  .stat-number-huge { font-size: 2.2rem; }
+  .landing-cta-container { padding: 36px 16px; }
+  .landing-cta-headline { font-size: 1.95rem; margin-bottom: 20px; }
+  .cta-btn-large {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+  .site-footer { padding: 28px 0 20px; }
+  .site-footer-inner { padding: 0 16px; gap: 18px; }
+  .footer-compact-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .footer-compact-brand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .footer-dot-sep { display: none; }
+  .footer-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding-top: 14px;
+  }
 }
 
 /* Light Mode Component Overrides */

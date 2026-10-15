@@ -76,7 +76,8 @@ export default function Navbar({ activeNav, theme, onNavClick, onToggleTheme }: 
 
         {user ? (
           <Link to="/home" className="btn-pill-primary">
-            Open Dashboard →
+            <span className="nav-btn-desktop">Open Dashboard →</span>
+            <span className="nav-btn-mobile">Dashboard →</span>
           </Link>
         ) : (
           <Link to="/login" className="btn-pill-primary">
