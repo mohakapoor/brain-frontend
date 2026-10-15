@@ -17,7 +17,6 @@ export default function Footer() {
           {/* Right: Essential Links */}
           <nav className="footer-compact-links" aria-label="Footer Navigation">
             <Link to="/home">Dashboard</Link>
-            <Link to="/login?mode=login">Sign In</Link>
             <a
               href="https://github.com/mohakapoor/brain-frontend"
               target="_blank"
