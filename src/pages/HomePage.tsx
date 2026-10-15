@@ -11,7 +11,6 @@ interface HomePageProps {
 }
 
 export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
-  useDocumentTitle('Dashboard')
   const location = useLocation()
   const { user, logout } = useAuth()
   const navigate = useNavigate()
@@ -26,13 +25,21 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
   const isLibraryView = currentPath === '/home/library'
   const isSummaryView = !isTasksView && !isFinanceView && !isFitnessView && !isLibraryView
 
-
+  const pageTitle = isTasksView
+    ? 'Tasks & Goals'
+    : isFinanceView
+    ? 'Finances'
+    : isFitnessView
+    ? 'Fitness & Health'
+    : isLibraryView
+    ? 'Personal Library'
+    : 'Executive Summary'
+  useDocumentTitle(pageTitle)
 
   const handleLogout = async () => {
     await logout()
     navigate('/login', { replace: true })
   }
-
 
   return (
     <div className="app-shell">
@@ -43,11 +50,10 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
             <span className="brand-glyph">✦</span>
             <span className="brand-title">Brain</span>
           </Link>
-          <span className="sidebar-env-badge">v1.0</span>
         </div>
 
         <nav className="sidebar-nav">
-          <div className="sidebar-section-label">Pillars</div>
+          <div className="sidebar-section-label">Workspace</div>
 
           <NavLink
             to="/home"
@@ -118,7 +124,7 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
             </div>
             <div className="user-profile-meta">
               <span className="user-name">{user?.username ?? 'Second Brain User'}</span>
-              <span className="user-status-text">Active Workspace</span>
+              <span className="user-status-text">Personal Workspace</span>
             </div>
           </div>
 
@@ -172,7 +178,7 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
           <>
             <header className="app-top-header">
               <div>
-                <span className="header-eyebrow">PILLAR 01 · TASK CAPTURE &amp; EXECUTION</span>
+                <span className="header-eyebrow">EXECUTION</span>
                 <h1 className="header-page-title">Tasks &amp; Goals</h1>
               </div>
               <div className="header-actions">
@@ -198,7 +204,7 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
             {/* Top bar */}
             <header className="app-top-header">
               <div>
-                <span className="header-eyebrow">SYSTEM STATUS · ALL CHANNELS ACTIVE</span>
+                <span className="header-eyebrow">OVERVIEW</span>
                 <h1 className="header-page-title">Executive Summary</h1>
               </div>
               <div className="header-actions">
@@ -221,7 +227,7 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
                 style={{ textDecoration: 'none', color: 'inherit' }}
               >
                 <div className="executive-card-header">
-                  <span className="executive-card-tag">01 · EXECUTION</span>
+                  <span className="executive-card-tag">EXECUTION</span>
                   <span className="executive-metric-pill">{pendingCount} Pending</span>
                 </div>
                 <h2 className="executive-card-title">Tasks &amp; Goals</h2>
@@ -239,7 +245,7 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
                   )}
                 </div>
                 <div className="executive-card-footer">
-                  <span>Click to view and manage tasks &rarr;</span>
+                  <span>Manage active tasks &rarr;</span>
                 </div>
               </Link>
 
@@ -250,16 +256,16 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
                 style={{ textDecoration: 'none', color: 'inherit' }}
               >
                 <div className="executive-card-header">
-                  <span className="executive-card-tag">02 · CAPITAL</span>
+                  <span className="executive-card-tag">CAPITAL</span>
                   <span className="executive-metric-pill">14.2 Mo Runway</span>
                 </div>
                 <h2 className="executive-card-title">Finances</h2>
                 <div className="executive-preview-body">
                   <div className="executive-stat-hero">₹42,850/mo</div>
-                  <div className="executive-stat-sub">Monthly Burn · On Budget</div>
+                  <div className="executive-stat-sub">Monthly Burn</div>
                 </div>
                 <div className="executive-card-footer">
-                  <span>Tracking 3 active spending categories</span>
+                  <span>Tracking active spending categories</span>
                 </div>
               </Link>
 
@@ -270,7 +276,7 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
                 style={{ textDecoration: 'none', color: 'inherit' }}
               >
                 <div className="executive-card-header">
-                  <span className="executive-card-tag">03 · PHYSICAL</span>
+                  <span className="executive-card-tag">PHYSICAL</span>
                   <span className="executive-metric-pill">4/5 Days Streak</span>
                 </div>
                 <h2 className="executive-card-title">Fitness &amp; Training</h2>
@@ -290,7 +296,7 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
                 style={{ textDecoration: 'none', color: 'inherit' }}
               >
                 <div className="executive-card-header">
-                  <span className="executive-card-tag">04 · KNOWLEDGE</span>
+                  <span className="executive-card-tag">KNOWLEDGE</span>
                   <span className="executive-metric-pill">248 Indexed</span>
                 </div>
                 <h2 className="executive-card-title">Personal Library</h2>
@@ -303,26 +309,45 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
                   </div>
                 </div>
                 <div className="executive-card-footer">
-                  <span>Syncing with MCP &amp; local notes</span>
+                  <span>Integrated with local notes</span>
                 </div>
               </Link>
             </div>
           </>
         ) : (
-          <div className="tasks-state-box">
-            <span className="empty-glyph">✦</span>
-            <p className="empty-title">
-              {isFinanceView ? 'Capital & Finances' : isFitnessView ? 'Physical & Training' : 'Knowledge & Library'}
-            </p>
-            <p className="empty-subtitle">This pillar will unlock in subsequent phases per docs/phase1.md.</p>
-            <Link
-              to="/home/todo"
-              className="btn-pill-primary"
-              style={{ marginTop: '16px', padding: '8px 16px', fontSize: '0.85rem', textDecoration: 'none' }}
-            >
-              Go to Tasks &amp; Goals
-            </Link>
-          </div>
+          <>
+            <header className="app-top-header">
+              <div>
+                <span className="header-eyebrow">
+                  {isFinanceView ? 'CAPITAL' : isFitnessView ? 'PHYSICAL' : 'KNOWLEDGE'}
+                </span>
+                <h1 className="header-page-title">
+                  {isFinanceView ? 'Finances' : isFitnessView ? 'Fitness & Health' : 'Personal Library'}
+                </h1>
+              </div>
+            </header>
+
+            <div className="tasks-state-box">
+              <span className="empty-glyph">✦</span>
+              <p className="empty-title">
+                {isFinanceView ? 'Capital & Finances' : isFitnessView ? 'Physical & Training' : 'Knowledge & Library'}
+              </p>
+              <p className="empty-subtitle">
+                {isFinanceView
+                  ? 'Cashflow telemetry, runway projections, and expense tracking will appear here.'
+                  : isFitnessView
+                  ? 'Workout logging, volume progression, and recovery tracking will appear here.'
+                  : 'Reading lists, synthesized literature notes, and semantic search will appear here.'}
+              </p>
+              <Link
+                to="/home/todo"
+                className="btn-pill-primary"
+                style={{ marginTop: '16px', padding: '8px 16px', fontSize: '0.85rem', textDecoration: 'none' }}
+              >
+                Go to Tasks &amp; Goals
+              </Link>
+            </div>
+          </>
         )}
       </main>
 
