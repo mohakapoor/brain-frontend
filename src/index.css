@@ -1429,7 +1429,9 @@ body::before {
     justify-content: center;
     padding: 12px 20px;
     font-size: 0.95rem;
+  }
 }
+
 
 /* Light Mode Component Overrides */
 [data-theme="light"] body::before {
@@ -2345,6 +2347,10 @@ body::before {
 
 .app-sidebar {
   width: 250px;
+  height: 100vh;
+  height: 100dvh;
+  position: sticky;
+  top: 0;
   background: var(--bg-surface);
   border-right: 1px solid var(--border-subtle);
   display: flex;
@@ -2352,7 +2358,12 @@ body::before {
   justify-content: space-between;
   padding: 24px 16px;
   flex-shrink: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-subtle) transparent;
   transition: background-color 0.25s ease, border-color 0.25s ease;
+  z-index: 50;
 }
 
 .sidebar-brand {
@@ -2755,12 +2766,16 @@ body::before {
     width: 280px;
     max-width: 84vw;
     height: 100vh;
+    height: 100dvh;
     z-index: 250;
     transform: translateX(-100%);
     transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease;
     box-shadow: none;
     border-right: 1px solid var(--border-medium);
     border-bottom: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: max(20px, env(safe-area-inset-bottom, 20px));
   }
 
   .app-sidebar.open {
@@ -3282,4 +3297,3 @@ button.custom-checkbox {
     text-align: center;
   }
 }
-
