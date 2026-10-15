@@ -5,6 +5,7 @@ import { ProtectedRoute, PublicOnlyRoute } from './components/RouteGuards'
 import LandingPage from './pages/LandingPage'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
+import NotFoundPage from './pages/NotFoundPage'
 
 export default function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
@@ -47,7 +48,7 @@ export default function App() {
             </ProtectedRoute>
           }
         />
-
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </AuthProvider>
   )
