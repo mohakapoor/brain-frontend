@@ -2388,6 +2388,13 @@ body::before {
   letter-spacing: 0.05em;
 }
 
+.header-actions-count {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
 .header-page-title {
   font-size: 1.85rem;
   font-weight: 900;

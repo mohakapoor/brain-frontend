@@ -178,11 +178,10 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
           <>
             <header className="app-top-header">
               <div>
-                <span className="header-eyebrow">EXECUTION</span>
                 <h1 className="header-page-title">Tasks &amp; Goals</h1>
               </div>
               <div className="header-actions">
-                <span className="header-eyebrow" style={{ margin: 0 }}>
+                <span className="header-actions-count">
                   {pendingCount} {pendingCount === 1 ? 'task' : 'tasks'} pending
                 </span>
               </div>
@@ -204,7 +203,6 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
             {/* Top bar */}
             <header className="app-top-header">
               <div>
-                <span className="header-eyebrow">OVERVIEW</span>
                 <h1 className="header-page-title">Executive Summary</h1>
               </div>
               <div className="header-actions">
@@ -318,9 +316,6 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
           <>
             <header className="app-top-header">
               <div>
-                <span className="header-eyebrow">
-                  {isFinanceView ? 'CAPITAL' : isFitnessView ? 'PHYSICAL' : 'KNOWLEDGE'}
-                </span>
                 <h1 className="header-page-title">
                   {isFinanceView ? 'Finances' : isFitnessView ? 'Fitness & Health' : 'Personal Library'}
                 </h1>
