@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { DemoTask } from '../types/landing'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import DualitySection from '../components/DualitySection'
@@ -16,6 +17,7 @@ interface LandingPageProps {
 }
 
 export default function LandingPage({ theme, onToggleTheme }: LandingPageProps) {
+  useDocumentTitle('Brain')
   useScrollReveal()
   const [activeNav, setActiveNav] = useState('loop')
 

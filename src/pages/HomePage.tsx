@@ -1,10 +1,12 @@
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { useTasks } from '../hooks/useTasks'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { TaskInput } from '../components/tasks/TaskInput'
 import { TasksView } from '../components/tasks/TasksView'
 
 export default function HomePage() {
+  useDocumentTitle('Dashboard')
   const location = useLocation()
   const { user, logout } = useAuth()
   const navigate = useNavigate()

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 export default function LoginPage() {
   const navigate = useNavigate()
@@ -8,6 +9,8 @@ export default function LoginPage() {
   const [searchParams, setSearchParams] = useSearchParams()
   const initialMode = searchParams.get('mode') === 'register' ? 'register' : 'login'
   const [authMode, setAuthMode] = useState<'login' | 'register'>(initialMode)
+
+  useDocumentTitle(authMode === 'login' ? 'Sign In' : 'Register')
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
