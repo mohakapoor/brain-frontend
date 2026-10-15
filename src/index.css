@@ -1846,13 +1846,19 @@ body::before {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: var(--accent-hero);
-  color: #ffffff;
+  background: var(--accent-hero) !important;
+  color: #ffffff !important;
   border-radius: var(--radius-pill);
   font-weight: 700;
   text-decoration: none;
   box-shadow: 0 10px 30px var(--accent-hero-glow);
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+}
+
+[data-theme="light"] .cta-btn-large {
+  background: #ff4624 !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 30px rgba(255, 70, 36, 0.35);
 }
 
 .cta-btn-large:hover {
