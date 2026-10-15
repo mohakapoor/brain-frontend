@@ -1348,6 +1348,10 @@ body::before {
   .landing-cta-container { padding: 48px 24px; }
   .landing-cta-headline { font-size: 2.3rem; margin-bottom: 24px; }
   .dual-tabs-title { display: none; }
+  .capture-input::placeholder,
+  .task-capture-input::placeholder {
+    color: transparent;
+  }
   .landing-footer { flex-direction: column; gap: 14px; }
 }
 
