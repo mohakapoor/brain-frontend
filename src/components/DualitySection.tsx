@@ -11,7 +11,7 @@ export default function DualitySection({ velocityPercentage, taskCount }: Dualit
   return (
     <section className="dual-interface-card" id="two-interfaces">
       <div className="dual-tabs-header">
-        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, letterSpacing: '-0.02em' }}>
+        <h2 className="dual-tabs-title">
           Two Interfaces. One Source of Truth.
         </h2>
 
@@ -36,7 +36,8 @@ export default function DualitySection({ velocityPercentage, taskCount }: Dualit
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
             </svg>
-            <span>Conversational AI (MCP)</span>
+            <span className="tab-label-desktop">Conversational AI (MCP)</span>
+            <span className="tab-label-mobile">AI Assistant (MCP)</span>
           </button>
         </div>
       </div>
