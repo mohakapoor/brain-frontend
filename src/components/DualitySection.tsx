@@ -95,23 +95,41 @@ export default function DualitySection({ velocityPercentage, taskCount }: Dualit
               </div>
             </div>
 
-            {/* Telemetry Chips (No emojis, clean labels) */}
-            <div className="telemetry-grid">
-              <div className="telemetry-chip">
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Response Time</span>
-                <span style={{ fontSize: '1.35rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>&lt; 50ms</span>
+            {/* Dashboard Preview Cards (1 card per row) */}
+            <div className="dashboard-preview-column">
+              {/* Card 1: Up Next / Active Tasks */}
+              <div className="dashboard-preview-card">
+                <div className="preview-card-header">
+                  <span className="preview-card-title">Up Next</span>
+                  <span className="preview-card-badge">{taskCount > 0 ? `${taskCount} active` : 'All clear'}</span>
+                </div>
+                <div className="preview-task-list">
+                  <div className="preview-task-row">
+                    <span className="preview-checkbox" />
+                    <span className="preview-task-text">Finalize Q3 roadmap presentation</span>
+                  </div>
+                  <div className="preview-task-row">
+                    <span className="preview-checkbox" />
+                    <span className="preview-task-text">Review PR for user onboarding flow</span>
+                  </div>
+                </div>
               </div>
-              <div className="telemetry-chip">
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Focus Mode</span>
-                <span style={{ fontSize: '1.35rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>Active</span>
-              </div>
-              <div className="telemetry-chip">
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Active Queue</span>
-                <span style={{ fontSize: '1.35rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>{taskCount} items</span>
-              </div>
-              <div className="telemetry-chip">
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Completion Rate</span>
-                <span style={{ fontSize: '1.35rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>High</span>
+
+              {/* Card 2: Today's Focus & Sync State */}
+              <div className="dashboard-preview-card">
+                <div className="preview-stats-row">
+                  <div className="preview-stat-col">
+                    <span className="preview-stat-label">Today's Focus</span>
+                    <span className="preview-stat-value">Deep Work</span>
+                    <span className="preview-stat-sub">4.5 hrs logged</span>
+                  </div>
+                  <div className="preview-stat-divider" />
+                  <div className="preview-stat-col">
+                    <span className="preview-stat-label">Sync Status</span>
+                    <span className="preview-stat-value">All synced</span>
+                    <span className="preview-stat-sub">Web &amp; AI linked</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

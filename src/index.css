@@ -548,27 +548,120 @@ body::before {
   box-shadow: 0 20px 40px var(--accent-hero-glow);
 }
 
-.telemetry-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.dashboard-preview-column {
+  display: flex;
+  flex-direction: column;
   gap: 14px;
 }
 
-.telemetry-chip {
+.dashboard-preview-card {
   background: var(--bg-surface-elevated);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-item);
-  padding: 20px;
+  padding: 18px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 8px;
+  gap: 12px;
+  flex: 1;
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
-.telemetry-chip:hover {
+.dashboard-preview-card:hover {
   border-color: var(--border-medium);
   transform: translateY(-2px);
+}
+
+.preview-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.preview-card-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.preview-card-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.preview-task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.preview-task-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.preview-checkbox {
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+  border: 1.5px solid var(--border-medium);
+  flex-shrink: 0;
+  background: var(--bg-surface);
+}
+
+.preview-task-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.preview-stats-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.preview-stat-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.preview-stat-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.preview-stat-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.preview-stat-sub {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.preview-stat-divider {
+  width: 1px;
+  height: 38px;
+  background: var(--border-subtle);
 }
 
 /* MCP Conversational AI Screen */
