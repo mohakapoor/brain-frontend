@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="footer-compact-wrap">
           {/* Left: Brand & Statement */}
           <div className="footer-compact-brand">
-            <span className="footer-brand-title">Brain</span>
+            <Link to="/" className="footer-brand-title">Brain</Link>
             <span className="footer-dot-sep">·</span>
             <span className="footer-brand-tagline">Personal second brain &amp; execution engine</span>
           </div>
@@ -31,7 +31,7 @@ export default function Footer() {
         {/* Bottom micro-bar */}
         <div className="footer-bottom-bar">
           <span>&copy; {currentYear} Mohak Kapoor. All rights reserved.</span>
-          <span className="footer-domain">brain.mohakapoor.in</span>
+          <Link to="/" className="footer-domain">brain.mohakapoor.in</Link>
         </div>
       </div>
     </footer>

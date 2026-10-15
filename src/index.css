@@ -2704,6 +2704,13 @@ button.custom-checkbox {
 .footer-domain {
   font-family: var(--font-mono);
   font-size: 0.75rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-domain:hover {
+  color: var(--text-primary);
 }
 
 @media (max-width: 640px) {
