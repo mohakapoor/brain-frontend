@@ -555,7 +555,7 @@ body::before {
 }
 
 .dashboard-preview-card {
-  background: var(--bg-surface-elevated);
+  background: #050608;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-item);
   padding: 18px 20px;
