@@ -1084,49 +1084,77 @@ body::before {
   margin-top: 2px;
 }
 
-/* Responsive: Mobile Stack */
+/* Responsive: Preserved Scaled Orbital Closed-Loop */
 @media (max-width: 820px) {
-  .orbital-diagram-canvas {
+  .orbital-loop-wrapper {
+    margin-top: 24px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 8px;
+  }
+
+  .orbital-loop-wrapper::-webkit-scrollbar {
     display: none;
   }
 
-  .mobile-loop-list {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-top: 30px;
-  }
-
-  .mobile-loop-item {
-    background: var(--bg-surface-elevated);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-item);
-    padding: 18px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+  .orbital-diagram-canvas {
+    width: 100%;
+    min-width: 540px;
+    aspect-ratio: 1000 / 440;
     position: relative;
   }
 
-  .mobile-loop-arrow {
-    text-align: center;
-    color: var(--accent-hero);
-    font-weight: 800;
-    font-size: 1.1rem;
-    margin-top: 6px;
+  .orbital-node {
+    padding: 10px 12px;
+    border-radius: 12px;
+    gap: 2px;
   }
 
-  .mobile-loop-arrow.return {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--accent-hero);
-    opacity: 0.85;
+  .orbital-title {
+    font-size: 1rem;
+  }
+
+  .orbital-desc {
+    font-size: 0.68rem;
+  }
+
+  .orbital-output {
+    font-size: 0.65rem;
   }
 }
 
-@media (min-width: 821px) {
-  .mobile-loop-list {
-    display: none;
+@media (max-width: 540px) {
+  .orbital-diagram-canvas {
+    min-width: 470px;
+  }
+
+  .orbital-node {
+    padding: 8px 10px;
+    border-radius: 10px;
+    gap: 1px;
+  }
+
+  .orbital-num {
+    font-size: 0.65rem;
+  }
+
+  .orbital-tag {
+    font-size: 0.52rem;
+    padding: 1px 4px;
+  }
+
+  .orbital-title {
+    font-size: 0.88rem;
+  }
+
+  .orbital-desc {
+    font-size: 0.64rem;
+  }
+
+  .orbital-output {
+    font-size: 0.6rem;
+    line-height: 1.25;
   }
 }
 

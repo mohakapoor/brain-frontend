@@ -136,27 +136,6 @@ export default function ExecutionLoop() {
             </div>
           ))}
         </div>
-
-        {/* Mobile Vertical Fallback (< 768px) */}
-        <div className="mobile-loop-list">
-          {steps.map((step, idx) => (
-            <div key={step.num} className="mobile-loop-item">
-              <div className="orbital-node-header">
-                <span className="orbital-num">{step.num}</span>
-                <span className="orbital-tag">{step.tag}</span>
-              </div>
-              <h3 className="orbital-title">{step.title}</h3>
-              <div className="orbital-desc">{step.desc}</div>
-              <div className="orbital-output">{step.output}</div>
-
-              {idx < steps.length - 1 ? (
-                <div className="mobile-loop-arrow">↓</div>
-              ) : (
-                <div className="mobile-loop-arrow return">↺ loops back to 01 Capture</div>
-              )}
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   )
