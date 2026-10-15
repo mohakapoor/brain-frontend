@@ -564,12 +564,6 @@ body::before {
   justify-content: center;
   gap: 12px;
   flex: 1;
-  transition: border-color 0.2s ease, transform 0.2s ease;
-}
-
-.dashboard-preview-card:hover {
-  border-color: var(--border-medium);
-  transform: translateY(-2px);
 }
 
 .preview-card-header {
