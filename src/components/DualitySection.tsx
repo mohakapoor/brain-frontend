@@ -65,8 +65,8 @@ export default function DualitySection({ velocityPercentage, taskCount }: Dualit
 
               <div style={{ marginTop: '24px' }}>
                 <svg
-                  style={{ width: '100%', height: '70px', display: 'block' }}
-                  viewBox="0 0 500 80"
+                  style={{ width: '100%', height: '70px', display: 'block', overflow: 'visible' }}
+                  viewBox="0 0 500 85"
                   preserveAspectRatio="none"
                   fill="none"
                 >
@@ -77,17 +77,17 @@ export default function DualitySection({ velocityPercentage, taskCount }: Dualit
                     </linearGradient>
                   </defs>
                   <path
-                    d="M 10 72 C 55 72, 70 70, 92 68 C 130 65, 145 62, 173 58 C 215 52, 230 42, 253 34 C 290 22, 305 16, 333 14 C 365 12, 385 16, 413 10 C 445 4, 465 5, 490 6 L 490 80 L 10 80 Z"
+                    d="M 10 75 C 55 75, 70 73, 92 71 C 130 68, 145 65, 173 61 C 215 55, 230 45, 253 37 C 290 25, 305 19, 333 17 C 365 15, 385 19, 413 13 C 445 7, 465 10, 482 12 L 482 85 L 10 85 Z"
                     fill="url(#velocityFill)"
                   />
                   <path
-                    d="M 10 72 C 55 72, 70 70, 92 68 C 130 65, 145 62, 173 58 C 215 52, 230 42, 253 34 C 290 22, 305 16, 333 14 C 365 12, 385 16, 413 10 C 445 4, 465 5, 490 6"
+                    d="M 10 75 C 55 75, 70 73, 92 71 C 130 68, 145 65, 173 61 C 215 55, 230 45, 253 37 C 290 25, 305 19, 333 17 C 365 15, 385 19, 413 13 C 445 7, 465 10, 482 12"
                     stroke="#ffffff"
                     strokeWidth="3.5"
                     strokeLinecap="round"
                   />
-                  <circle cx="490" cy="6" r="4.5" fill="#ffffff" />
-                  <circle cx="490" cy="6" r="9" fill="#ffffff" fillOpacity="0.3" />
+                  <circle cx="482" cy="12" r="4.5" fill="#ffffff" />
+                  <circle cx="482" cy="12" r="9" fill="#ffffff" fillOpacity="0.3" />
                 </svg>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', fontWeight: 600, opacity: 0.85, marginTop: '10px' }}>
                   <span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span>
