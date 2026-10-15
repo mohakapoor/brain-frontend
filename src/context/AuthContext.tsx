@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 import type { User, AuthContextType } from '../types/auth'
+import { apiRequest } from '../lib/api'
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
@@ -9,18 +10,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const checkAuth = async () => {
     try {
-      const apiBase = import.meta.env.VITE_API_BASE_URL
-      const response = await fetch(`${apiBase}/api_brain/auth/me`, {
+      const data = await apiRequest<{ user: User }>('/api_brain/auth/me', {
         method: 'GET',
-        credentials: 'include',
       })
-
-      if (response.ok) {
-        const data = await response.json()
-        setUser(data.user)
-      } else {
-        setUser(null)
-      }
+      setUser(data.user)
     } catch {
       setUser(null)
     } finally {
@@ -30,10 +23,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const logout = async () => {
     try {
-      const apiBase = import.meta.env.VITE_API_BASE_URL
-      await fetch(`${apiBase}/api_brain/auth/logout`, {
+      await apiRequest('/api_brain/auth/logout', {
         method: 'POST',
-        credentials: 'include',
       })
     } finally {
       setUser(null)

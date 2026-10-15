@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
+import { apiRequest } from '../lib/api'
+import type { User } from '../types/auth'
 
 export default function LoginPage() {
   const navigate = useNavigate()
@@ -45,33 +47,15 @@ export default function LoginPage() {
     setIsLoading(true)
 
     try {
-      const apiBase = import.meta.env.VITE_API_BASE_URL
       const path = authMode === 'register' ? '/api_brain/auth/register' : '/api_brain/auth/login'
-      const endpoint = `${apiBase}${path}`
       const payload = authMode === 'register'
         ? { username: username.trim(), password, inviteCode: inviteCode.trim() }
         : { username: username.trim(), password }
 
-      const response = await fetch(endpoint, {
+      const data = await apiRequest<{ user?: User }>(path, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify(payload),
       })
-
-      const data = await response.json().catch(() => ({}))
-
-      if (!response.ok) {
-        let msg = 'Authentication failed. Please check your details.'
-        if (typeof data.error === 'string') {
-          msg = data.error
-        } else if (data.error?.issues?.[0]?.message) {
-          msg = data.error.issues[0].message
-        }
-        setErrorMsg(msg)
-        setIsLoading(false)
-        return
-      }
 
       if (data.user) {
         setUser(data.user)
@@ -80,8 +64,8 @@ export default function LoginPage() {
       }
 
       navigate('/home', { replace: true })
-    } catch {
-      setErrorMsg('Unable to connect to the server. Please check your connection.')
+    } catch (err: any) {
+      setErrorMsg(err.message || 'Authentication failed. Please check your details.')
       setIsLoading(false)
     }
   }
