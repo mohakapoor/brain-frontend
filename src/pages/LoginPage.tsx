@@ -204,16 +204,23 @@ export default function LoginPage() {
                 </div>
 
                 <div className="auth-checkbox-group">
-                  <label className="auth-checkbox-label">
+                  <label className="auth-checkbox-label" htmlFor="auth-age-confirm">
                     <input
                       type="checkbox"
                       id="auth-age-confirm"
-                      className="auth-checkbox"
+                      className="auth-checkbox-hidden"
                       checked={isAgeConfirmed}
                       onChange={e => setIsAgeConfirmed(e.target.checked)}
                       disabled={isLoading}
                     />
-                    <span>I confirm that I am at least 13 years of age</span>
+                    <span className={`auth-custom-checkbox ${isAgeConfirmed ? 'checked' : ''}`}>
+                      {isAgeConfirmed && (
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      )}
+                    </span>
+                    <span className="auth-checkbox-text">I confirm that I am at least 13 years of age</span>
                   </label>
                 </div>
               </>
