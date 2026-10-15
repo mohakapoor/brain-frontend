@@ -2836,6 +2836,27 @@ body::before {
   .header-page-title {
     font-size: 1.55rem;
   }
+
+  .capture-input-box {
+    padding: 5px 6px 5px 14px;
+  }
+
+  .capture-input::placeholder,
+  .task-capture-input::placeholder {
+    color: transparent;
+  }
+
+  .kbd-badge {
+    display: none;
+  }
+
+  .task-item-row .task-row-actions {
+    opacity: 1;
+  }
+
+  .task-item-row {
+    padding: 14px 14px;
+  }
 }
 
 /* ==========================================================================
