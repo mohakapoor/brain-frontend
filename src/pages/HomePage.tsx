@@ -227,7 +227,7 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
                 <h2 className="executive-card-title">Tasks &amp; Goals</h2>
                 <div className="executive-preview-body">
                   {tasks.slice(0, 2).map(t => (
-                    <div key={t.id} className="executive-task-item">
+                    <div key={t.id} className={`executive-task-item ${t.completed === 1 ? 'completed' : ''}`}>
                       <span className={`check-box-preview ${t.completed === 1 ? 'checked' : ''}`} />
                       <span>{t.title}</span>
                     </div>

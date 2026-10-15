@@ -1195,8 +1195,8 @@ body::before {
 }
 
 .task-item-row:hover {
-  border-color: var(--border-medium);
-  background: #202432;
+  border-color: var(--border-hover);
+  background: rgba(255, 255, 255, 0.04);
   transform: translateX(4px);
 }
 
@@ -1378,11 +1378,24 @@ body::before {
 }
 
 [data-theme="light"] .task-item-row {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  background: #ffffff;
+  border-color: rgba(45, 40, 32, 0.12);
+  box-shadow: 0 2px 8px rgba(45, 40, 32, 0.04);
 }
 
 [data-theme="light"] .task-item-row:hover {
-  background: #f8f9fc;
+  background: #f3efe6;
+  border-color: rgba(45, 40, 32, 0.22);
+}
+
+[data-theme="light"] .checkmark-icon {
+  color: #ffffff;
+}
+
+[data-theme="light"] .task-meta-tag {
+  background: rgba(45, 40, 32, 0.06);
+  border: 1px solid rgba(45, 40, 32, 0.1);
+  color: var(--text-muted);
 }
 
 [data-theme="light"] .auth-gateway-box {
@@ -2476,6 +2489,17 @@ body::before {
   border: 1px solid var(--border-medium);
   border-radius: 4px;
   flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.check-box-preview.checked {
+  background: var(--accent-emerald);
+  border-color: var(--accent-emerald);
+}
+
+.executive-task-item.completed {
+  color: var(--text-muted);
+  text-decoration: line-through;
 }
 
 .executive-stat-hero {
@@ -2518,6 +2542,19 @@ body::before {
 
   .executive-summary-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-main-canvas {
+    padding: 20px 16px;
+    gap: 20px;
+  }
+
+  .app-top-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
 }
 
@@ -2711,6 +2748,17 @@ button.custom-checkbox {
   border: 1px dashed var(--border-medium);
   background: var(--bg-surface);
   gap: 8px;
+}
+
+.tasks-state-box.error {
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+}
+
+[data-theme="light"] .tasks-state-box,
+[data-theme="light"] .tasks-empty-state {
+  background: #ffffff;
+  border-color: rgba(45, 40, 32, 0.16);
 }
 
 .tasks-empty-sub {
