@@ -2065,8 +2065,28 @@ body::before {
   transition: color 0.2s ease;
 }
 
-.password-toggle-btn:hover {
-  color: var(--text-primary);
+.auth-checkbox-group {
+  display: flex;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.auth-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.auth-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent-hero);
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 .btn-submit-auth {

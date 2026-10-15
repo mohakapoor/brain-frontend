@@ -18,6 +18,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [inviteCode, setInviteCode] = useState('')
+  const [isAgeConfirmed, setIsAgeConfirmed] = useState(false)
   const [errorMsg, setErrorMsg] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const [successMsg, setSuccessMsg] = useState<string | null>(null)
@@ -27,6 +28,7 @@ export default function LoginPage() {
     setSearchParams({ mode })
     setErrorMsg(null)
     setSuccessMsg(null)
+    setIsAgeConfirmed(false)
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -39,9 +41,15 @@ export default function LoginPage() {
       return
     }
 
-    if (authMode === 'register' && !inviteCode.trim()) {
-      setErrorMsg('An invite code is required to register.')
-      return
+    if (authMode === 'register') {
+      if (!inviteCode.trim()) {
+        setErrorMsg('An invite code is required to register.')
+        return
+      }
+      if (!isAgeConfirmed) {
+        setErrorMsg('You must confirm that you are at least 13 years of age.')
+        return
+      }
     }
 
     setIsLoading(true)
@@ -181,18 +189,34 @@ export default function LoginPage() {
             </div>
 
             {authMode === 'register' && (
-              <div className="input-field-group">
-                <label className="input-label" htmlFor="auth-invite">Invite Code</label>
-                <input
-                  id="auth-invite"
-                  type="text"
-                  className="text-input"
-                  placeholder="Enter private invite code"
-                  value={inviteCode}
-                  onChange={e => setInviteCode(e.target.value)}
-                  disabled={isLoading}
-                />
-              </div>
+              <>
+                <div className="input-field-group">
+                  <label className="input-label" htmlFor="auth-invite">Invite Code</label>
+                  <input
+                    id="auth-invite"
+                    type="text"
+                    className="text-input"
+                    placeholder="Enter private invite code"
+                    value={inviteCode}
+                    onChange={e => setInviteCode(e.target.value)}
+                    disabled={isLoading}
+                  />
+                </div>
+
+                <div className="auth-checkbox-group">
+                  <label className="auth-checkbox-label">
+                    <input
+                      type="checkbox"
+                      id="auth-age-confirm"
+                      className="auth-checkbox"
+                      checked={isAgeConfirmed}
+                      onChange={e => setIsAgeConfirmed(e.target.checked)}
+                      disabled={isLoading}
+                    />
+                    <span>I confirm that I am at least 13 years of age</span>
+                  </label>
+                </div>
+              </>
             )}
 
             <button type="submit" className="btn-submit-auth" disabled={isLoading}>
