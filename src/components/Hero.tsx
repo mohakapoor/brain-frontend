@@ -15,21 +15,23 @@ export default function Hero({ children }: HeroProps) {
   const card2Transform = `translate(${-tuckedFactor * 85}px, ${tuckedFactor * 60}px) scale(${0.72 + 0.28 * scrollProg})`
   const card3Transform = `translate(${-tuckedFactor * 70}px, ${-tuckedFactor * 55}px) scale(${0.72 + 0.28 * scrollProg})`
   const cardOpacity = 0.25 + 0.75 * scrollProg
-
   return (
-    <section className="section-full hero-stage" id="top">
-      <h1 className="hero-headline-massive">
-        Capture Quickly.<br />
-        Execute Relentlessly.
-      </h1>
+    <>
+      <section className="section-full hero-stage" id="top">
+        <h1 className="hero-headline-massive">
+          Capture Quickly.<br />
+          Execute Relentlessly.
+        </h1>
 
-      <p className="hero-lead-text">
-        A fast, distraction-free system to clear your mind and get things done.
-        Capture thoughts instantly from your browser or through AI.
-      </p>
+        <p className="hero-lead-text">
+          A fast, distraction-free system to clear your mind and get things done.
+          Capture thoughts instantly from your browser or through AI.
+        </p>
+      </section>
 
       {/* Hero Showcase with Linear.app pop-out levitating micro-cards */}
-      <div className="hero-showcase-container">
+      <section className="section-full showcase-stage" id="showcase">
+        <div className="hero-showcase-container">
         {/* Floating Card 1: Fast-Capture Shortcut Card */}
         <div
           className="floating-ui-wrapper top-left"
@@ -109,6 +111,7 @@ export default function Hero({ children }: HeroProps) {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+    </>
   )
 }
