@@ -660,15 +660,14 @@ body::before {
 
 /* MCP Conversational AI Screen */
 .mcp-terminal-screen {
-  background: #08090e;
-  border: 1px solid var(--border-medium);
+  background: #050608;
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-item);
   padding: 22px 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   min-height: 310px;
-  box-shadow: inset 0 2px 14px rgba(0, 0, 0, 0.65);
 }
 
 [data-theme="light"] .mcp-terminal-screen {
