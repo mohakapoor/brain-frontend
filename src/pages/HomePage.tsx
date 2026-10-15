@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { useTasks } from '../hooks/useTasks'
@@ -14,6 +15,7 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
   const location = useLocation()
   const { user, logout } = useAuth()
   const navigate = useNavigate()
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const { tasks, isLoading: tasksLoading, error: tasksError, createTask, toggleTask, editTask, deleteTask } = useTasks()
   const pendingCount = tasks.filter(t => t.completed === 0).length
 
@@ -36,6 +38,11 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
     : 'Executive Summary'
   useDocumentTitle(pageTitle)
 
+  // Automatically close mobile sidebar drawer on navigation
+  useEffect(() => {
+    setIsSidebarOpen(false)
+  }, [location.pathname])
+
   const handleLogout = async () => {
     await logout()
     navigate('/login', { replace: true })
@@ -43,13 +50,81 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
 
   return (
     <div className="app-shell">
-      {/* 1. Left Navigation Rail */}
-      <aside className="app-sidebar">
-        <div className="sidebar-brand">
+      {/* Mobile Top App Bar (visible on <= 900px) */}
+      <header className="mobile-app-bar">
+        <div className="mobile-app-bar-left">
+          <button
+            type="button"
+            className="mobile-menu-btn"
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            aria-label={isSidebarOpen ? 'Close menu' : 'Open menu'}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
           <Link to="/" className="sidebar-brand-link">
             <span className="brand-glyph">✦</span>
             <span className="brand-title">Brain</span>
           </Link>
+        </div>
+
+        <div className="mobile-app-bar-right">
+          <button
+            type="button"
+            className="sidebar-icon-btn mobile-icon-btn"
+            onClick={onToggleTheme}
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          >
+            {theme === 'dark' ? (
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              </svg>
+            ) : (
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            )}
+          </button>
+        </div>
+      </header>
+
+      {/* Backdrop for Mobile Sidebar Drawer */}
+      {isSidebarOpen && (
+        <div
+          className="sidebar-backdrop"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
+      {/* 1. Left Navigation Rail / Drawer */}
+      <aside className={`app-sidebar ${isSidebarOpen ? 'open' : ''}`}>
+        <div className="sidebar-brand">
+          <Link to="/" className="sidebar-brand-link" onClick={() => setIsSidebarOpen(false)}>
+            <span className="brand-glyph">✦</span>
+            <span className="brand-title">Brain</span>
+          </Link>
+          <button
+            type="button"
+            className="sidebar-close-btn"
+            onClick={() => setIsSidebarOpen(false)}
+            aria-label="Close navigation"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
         </div>
 
         <nav className="sidebar-nav">
