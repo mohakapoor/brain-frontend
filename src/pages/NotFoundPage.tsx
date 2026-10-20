@@ -19,6 +19,9 @@ export default function NotFoundPage() {
         <div className="not-found-number">404</div>
         <h1 className="not-found-title">Oops</h1>
         <p className="not-found-sub">Page not found.</p>
+        <Link to="/" className="not-found-btn">
+          Back to Home
+        </Link>
       </main>
     </div>
   )

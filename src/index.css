@@ -3126,6 +3126,30 @@ button.custom-checkbox {
   color: var(--text-secondary);
 }
 
+.not-found-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  padding: 10px 22px;
+  background: var(--text-primary);
+  color: var(--text-inverted);
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.not-found-btn:hover {
+  opacity: 0.88;
+  transform: none;
+  box-shadow: none;
+}
+
 /* Site Footer */
 .site-footer {
   background: #030406;
