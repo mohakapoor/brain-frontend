@@ -35,7 +35,7 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
     ? 'Fitness & Health'
     : isLibraryView
     ? 'Personal Library'
-    : 'Executive Summary'
+    : 'Overview'
   useDocumentTitle(pageTitle)
 
   // Automatically close mobile sidebar drawer on navigation
@@ -141,7 +141,7 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
               <rect x="14" y="14" width="7" height="7" />
               <rect x="3" y="14" width="7" height="7" />
             </svg>
-            <span>Executive Summary</span>
+            <span>Overview</span>
           </NavLink>
 
           <NavLink
@@ -278,7 +278,7 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
             {/* Top bar */}
             <header className="app-top-header">
               <div>
-                <h1 className="header-page-title">Executive Summary</h1>
+                <h1 className="header-page-title">Overview</h1>
               </div>
               <div className="header-actions">
                 <Link
@@ -300,7 +300,7 @@ export default function HomePage({ theme, onToggleTheme }: HomePageProps) {
                 style={{ textDecoration: 'none', color: 'inherit' }}
               >
                 <div className="executive-card-header">
-                  <span className="executive-card-tag">EXECUTION</span>
+                  <span className="executive-card-tag">TASKS</span>
                   <span className="executive-metric-pill">{pendingCount} Pending</span>
                 </div>
                 <h2 className="executive-card-title">Tasks &amp; Goals</h2>
