@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="footer-compact-brand">
             <Link to="/" className="footer-brand-title">Brain</Link>
             <span className="footer-dot-sep">·</span>
-            <span className="footer-brand-tagline">Personal second brain &amp; execution engine</span>
+            <span className="footer-brand-tagline">Your personal second brain</span>
           </div>
 
           {/* Right: Essential Links */}

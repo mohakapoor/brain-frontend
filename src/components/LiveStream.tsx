@@ -23,7 +23,7 @@ export default function LiveStream({ tasks, onToggleTask, onAddTask }: LiveStrea
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
           <div>
             <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, letterSpacing: '-0.02em', marginTop: '4px' }}>
-              Live Execution Stream
+              Interactive Demo
             </h2>
           </div>
           <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>

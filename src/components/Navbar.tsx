@@ -43,7 +43,7 @@ export default function Navbar({ activeNav, theme, onNavClick, onToggleTheme }: 
           className={`nav-link-btn ${activeNav === 'stream' ? 'active' : ''}`}
           onClick={() => onNavClick('live-stream', 'stream')}
         >
-          Live Stream
+          Interactive Demo
         </button>
       </nav>
 
