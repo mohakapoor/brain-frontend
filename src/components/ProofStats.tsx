@@ -4,7 +4,7 @@ export default function ProofStats() {
       number: '< 500ms',
       color: 'var(--accent-hero)',
       label: 'Capture Latency',
-      desc: 'Offload thoughts before working memory decays. Zero categorization friction.',
+      desc: 'Capture ideas the moment they strike.',
     },
     {
       number: '0s',

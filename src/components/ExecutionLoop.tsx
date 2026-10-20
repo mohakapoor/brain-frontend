@@ -49,7 +49,7 @@ export default function ExecutionLoop() {
           The 5-Step Execution Loop
         </h2>
         <p style={{ color: 'var(--text-secondary)', marginTop: '6px', fontSize: '1.05rem', maxWidth: '640px' }}>
-          A continuous closed-loop system: every completed action feeds directly back into future calibration.
+          A simple cycle designed to keep your focus sharp and your days on track.
         </p>
       </div>
 

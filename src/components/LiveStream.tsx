@@ -27,7 +27,7 @@ export default function LiveStream({ tasks, onToggleTask, onAddTask }: LiveStrea
             </h2>
           </div>
           <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
-            Click tasks to complete & recalculate velocity
+            Click any task to mark it complete
           </span>
         </div>
 
@@ -35,7 +35,7 @@ export default function LiveStream({ tasks, onToggleTask, onAddTask }: LiveStrea
           <input
             type="text"
             className="capture-input"
-            placeholder="What do you need to execute right now?"
+            placeholder="What are you working on right now?"
             value={inputVal}
             onChange={e => setInputVal(e.target.value)}
           />

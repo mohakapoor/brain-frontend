@@ -49,7 +49,7 @@ export default function DualitySection({ velocityPercentage, taskCount }: Dualit
             <div className="focal-velocity-card">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <div>
-                  <div style={{ fontSize: '0.85rem', fontWeight: 600, opacity: 0.9 }}>Execution Velocity</div>
+                  <div style={{ fontSize: '0.85rem', fontWeight: 600, opacity: 0.9 }}>Weekly Progress</div>
                   <div style={{ fontSize: '3rem', fontWeight: 800, letterSpacing: '-0.04em' }}>{velocityPercentage}%</div>
                 </div>
                 <div style={{
